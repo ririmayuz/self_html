@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* /* input{
+            width: 200px;
+        } */
+    </style>
+</head>
+
+<body>
+    <h3>Form</h3>
+    <hr>
+    <br>
+    <!-- action 去哪 -->
+    <!-- 方法1. br換行 -->
+    <form action="">
+
+        <input type="text" name="" id="">
+        <br><br>
+        <input type="text" name="" id="">
+        <br><br>
+        <hr>
+
+        <!-- 方法2: p 段落，較整齊、方便維護 -->
+        <!-- for與id，等同鑰匙跟門、相對應 -->
+        <br>
+        <p>
+            <!-- <label for="name">姓名:</label> -->
+            <input type="text" id="name" placeholder="name?" value="123">
+        </p>
+        <p>
+            <!-- <label for="mobile">電話:</label> -->
+            <input type="text" id="mobile" placeholder="mobile?">
+        </p>
+
+    </form>
+
+    <br>
+    <hr>
+    <br>
+    <h3>form + table</h3>
+    <table>
+        <form action="">
+            <tr>
+
+                <td>
+                    <label for="name">姓名:</label>
+                </td>
+
+                <td>
+                    <input type="text" id="name">
+                </td>
+
+                <td>
+                    <label for="mobile">電話:</label>
+                </td>
+                <td>
+                    <input type="text" id="mobile">
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>
+                    <label for="name">姓名:</label>
+                </td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+                
+                <td>
+                    <label for="mobile">電話:</label>
+                </td>
+                <td>
+                    <input type="text" id="mobile">
+                </td>
+
+            </tr>
+        </form>
+    </table>
+</body>
+
+</html>
