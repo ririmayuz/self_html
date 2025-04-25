@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>入職登記表</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      /* background-color: #a1b3ec; */
+      background-image: url('./images/01.jpg');
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 24px 32px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 6px;
+    }
+
+    .inline-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+      align-items: center;
+    }
+
+    .inline-group label {
+      margin-top: 0;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 24px 0;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      width: 48%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      background-color: #007bff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #0056b3;
+    }
+
+    input[type="text"]::placeholder {
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="">
+    <h3>入職登記表</h3>
+    <hr>
+    <h3>個人資料</h3>
+
+    <label for="name">姓名</label>
+    <input type="text" name="name" id="name" />
+
+    <label for="birthday">到職日</label>
+    <input type="date" name="birthday" id="birthday" />
+
+    <label>性別</label>
+    <div class="inline-group">
+      <input type="radio" name="gender" id="boy" value="男" />
+      <label for="boy">男生</label>
+      <input type="radio" name="gender" id="girl" value="女" />
+      <label for="girl">女生</label>
+    </div>
+
+    <label for="phone">電話</label>
+    <input type="text" name="phone" id="phone" />
+
+    <label for="education">學歷</label>
+    <input type="text" name="education" id="education" />
+
+    <label>語言能力</label>
+    <div class="inline-group">
+      <input type="checkbox" name="language[]" id="lang1" value="中文" />
+      <label for="lang1">中文</label>
+      <input type="checkbox" name="language[]" id="lang2" value="英文" />
+      <label for="lang2">英文</label>
+      <input type="checkbox" name="language[]" id="lang3" value="其他" />
+      <label for="lang3">其他語言</label>
+      <input type="text" name="other_language" id="other_language" placeholder="請輸入其他語言" />
+    </div>
+
+    <label>交通工具</label>
+    <div class="inline-group">
+      <input type="checkbox" name="vehicle[]" id="car" value="汽車" />
+      <label for="car">汽車</label>
+      <input type="checkbox" name="vehicle[]" id="motor" value="機車" />
+      <label for="motor">機車</label>
+    </div>
+
+    <h3>工作經歷</h3>
+    <textarea name="experience" id="experience" cols="30" rows="5"></textarea>
+
+    <div class="form-actions">
+      <input type="submit" value="送出" />
+      <input type="reset" value="清除" />
+    </div>
+
+    <input type="hidden" name="vip" value="vvip" />
+  </form>
+</body>
+
+</html>
