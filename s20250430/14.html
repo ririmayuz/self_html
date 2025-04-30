@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h1{text-align: center;}
-        table {
-            width: 50%;
-            margin: auto;
-            border-collapse: collapse;
+        h1 {
+            text-align: center;
         }
 
-        /* td {
-            height: 100px;
-            padding: 30px;
-        } */
+        table {
+            width: 60%;
+            margin: auto;
+            border-collapse: collapse;
+            /* border-collapse: separate; */
+            /* border-spacing: 20px; */
+        }
+
+        td {
+            width: 50%;
+            /* 固定尺寸 */
+        }
 
         #btn1 {
             background-color: rgb(34, 201, 223);
@@ -36,62 +41,81 @@
 
         td {
             /* height: 50px; */
-            padding: 30px;
+            padding: 20px;
             color: white;
             border: 5px solid white;
-            border-radius: 20px;
+            border-radius: 30px;
+            /* 鈍角 */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            /* 陰影讓形狀更立體 */
 
         }
-        .left {text-align: left;}
+
+        .left {
+            text-align: left;
+        }
+
+        .left li:hover {
+            text-decoration: underline;
+        }
+
         .center {
             text-align: center;
             font-size: 23px;
+        }
+
+        .center:hover {
+            color: yellow;
+        }
+
+        .shadow-text {
+            text-shadow: 2px 2px 5px gray;
         }
     </style>
 </head>
 
 <body>
-    <h1>SWOT</h1>
+    <h1 class="shadow-text">SWOT</h1>
     <table>
         <tr>
             <td id="btn1" class="btn">
-                <p class="center">優勢 Strength</p>
+                <p class="center">🙌優勢 Strength</p>
                 <br>
-                <p class="left">
+                <ul class="left">
                     <li>有哪些地方是我們做得好的？</li>
                     <li>我們的組織有什麼獨特之處？</li>
                     <li>我們的組織有哪些地方受到目標受眾的青睞？</li>
-                </p>
+                </ul>
             </td>
             <td id="btn2" class="btn">
-                <p class="center">劣勢 Weaknesses</p>
+                <p class="center">😣劣勢 Weaknesses</p>
                 <br>
-                <p class="left">
+                <ul class="left">
                     <li>哪些措舉的表現不佳？原因是什麼？</li>
                     <li>有哪些地方可以改進？</li>
                     <li>什麼樣的資源能夠幫助我們提高績效？</li>
-                </p>
+                </ul>
             </td>
         </tr>
         <tr>
             <td id="btn3" class="btn">
-                <p class="center">機會 Opportunities</p>
+                <p class="center">🌟機會 Opportunities</p>
                 <br>
-                <p class="left">
+                <ul class="left">
                     <li>我們可以利用哪些資源改進弱點？</li>
                     <li>我們的服務中是否有任何市場缺口？</li>
                     <li>我們的年度目標是什麼？</li>
-                </p>
+                </ul>
             </td>
 
             <td id="btn4" class="btn">
-                <p class="center">威脅 Threats</p> 
+                <p class="center">⚠️威脅 Threats</p>
                 <br>
-                <p class="left">
+                <ul class="left">
                     <li>有哪些業界中的變化可能會引發問題？</li>
                     <li>有哪些新的市場趨勢即將萌芽？</li>
                     <li>我們的競爭對手在哪些方面優於我們？</li>
-                </p>
+                </ul>
             </td>
         </tr>
     </table>
