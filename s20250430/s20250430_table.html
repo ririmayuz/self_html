@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lyu3 {
+            color: rgb(173, 33, 143);
+        }
+        .green {
+            color: green;
+        }
+
+        /* 同一層(不好記，少用) */
+        .green~div {
+            color: lightcoral;
+        }
+
+        /* 同一層後面那一個 */
+        .green+div {
+            color: aqua;
+        }
+
+        /* 下一層 */
+        .green>div {
+            color: sandybrown;
+        }
+
+        /* 後代全部 */
+        .green div {
+            color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="green">
+        劉備
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;劉峰
+            <div class="lyu3">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小劉峰
+            </div>
+        </div>
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;劉禪
+            <div class="lyu3">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小劉禪
+            </div>
+        </div>
+    </div>
+    <div class="blue">
+        關羽
+    </div>
+    <div class="red">
+        張飛
+    </div>
+</body>
+
+</html>
