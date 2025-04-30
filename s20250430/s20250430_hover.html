@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,65 @@
         .box:hover {
             background-color: pink;
         }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: auto;
+            text-align: center;
+        }
+
+        .money {
+            color: blue;
+        }
+        .money::before{
+            content: '$ ';
+        }
+        .money::after{
+            content: ' 元';
+        }
+        .money:hover{
+            font-size: 30px;
+        }
     </style>
 </head>
+
 <body>
     <div class="box">あ</div>
+    <hr>
+    <table>
+        <tr>
+            <th>產品</th>
+            <th>價格</th>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+    </table>
 </body>
+
 </html>
