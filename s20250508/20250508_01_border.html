@@ -18,9 +18,9 @@
         table,
         tr,
         td {
-            border: 1px solid black;
+            /* border: 1px solid black; */
             height: 500px;
-            vertical-align: bottom;
+            /* vertical-align: bottom; */
         }
 
         table {
@@ -29,13 +29,25 @@
             margin: auto;
         }
 
-        .table2-td{
+        /* vertical-align 高度 只能用在table */
+        .table2-td {
             background-color: lightpink;
             height: 500px;
             vertical-align: middle;
             text-align: center;
         }
-        
+
+        .box1 {
+            vertical-align: top;
+        }
+
+        .box2 {
+            vertical-align: middle;
+        }
+
+        .box3 {
+            vertical-align: bottom;
+        }
     </style>
 
 </head>
@@ -47,17 +59,17 @@
     <h3>table1</h3>
     <table>
         <tr>
-            <td>
+            <td class="box1"> <!-- class只能用在tdtrtb -->
                 <div class="box">
                     本業
                 </div>
             </td>
-            <td>
+            <td class="box2">
                 <div class="box">
                     投資
                 </div>
             </td>
-            <td>
+            <td class="box3">
                 <div class="box">
                     房地產
                 </div>
@@ -68,13 +80,13 @@
     <h3>table2</h3>
     <table id="table2">
         <tr>
-            <td class="table2-td">
+            <td class="table2-td box">
                 本業
             </td>
-            <td class="table2-td">
+            <td class="table2-td box">
                 投資
             </td>
-            <td class="table2-td">
+            <td class="table2-td box">
                 房地產
             </td>
         </tr>
