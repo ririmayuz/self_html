@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            margin: auto;
+            text-align: center;
+            padding: 10px;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            height: 500px;
+            vertical-align: bottom;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        .table2-td{
+            background-color: lightpink;
+            height: 500px;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+    </style>
+
+</head>
+
+<!-- 觀察table跟box的寫法差異 -->
+<!-- vertical-align 只能用在table -->
+
+<body>
+    <h3>table1</h3>
+    <table>
+        <tr>
+            <td>
+                <div class="box">
+                    本業
+                </div>
+            </td>
+            <td>
+                <div class="box">
+                    投資
+                </div>
+            </td>
+            <td>
+                <div class="box">
+                    房地產
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <h3>table2</h3>
+    <table id="table2">
+        <tr>
+            <td class="table2-td">
+                本業
+            </td>
+            <td class="table2-td">
+                投資
+            </td>
+            <td class="table2-td">
+                房地產
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
