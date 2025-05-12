@@ -1,59 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>左右分欄＋左側上下切</title>
-  <style>
-    /* 最外層容器，寬 1000px，置中，內部使用 flex 橫向排列 */
-    .container {
-      width: 80%;
-      height: 400px;
-      margin-top: 10px;   /* 上下間距 */
-      margin-bottom: 10px;
-      margin-left: auto;  /* 置中 */
-      margin-right: auto;
-      display: flex;      /* 設定為 Flexbox，橫向排列子項 */
-      gap: 10px;          /* 左右子項之間的間距 */
-      background-color: #ccc; /* 僅作區塊背景示意用，可刪 */
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <title>履歷表</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f5f5f5;
+        }
 
-    /* 左側區塊，寬 600px，內部再垂直切分上下兩塊 */
-    .left {
-      width: 600px;
-      display: flex;             /* 設定為 Flexbox 垂直排列 */
-      flex-direction: column;   /* 垂直排列子項（上下） */
-      gap: 10px;                /* 上下區塊之間的間距 */
-    }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            display: flex;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    /* 左上的 box，佔高一半 */
-    .left-top,
-    .left-bottom {
-      height: 50%;                 /* 兩個等分高 */
-      background-color: lightblue; /* 可自行調整顏色 */
-    }
+        .left-column {
+            flex: 3;
+            background-color: black;
+            padding: 20px;
+            text-align: center;
+            color: white
+        }
 
-    /* 右側區塊，單一 box */
-    .right {
-      width: 390px;
-      background-color: lightgreen;
-    }
-  </style>
+        .right-column {
+            flex: 6;
+            padding: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
+
 <body>
-  <!-- 整體分為左右兩區塊 -->
-  <div class="container">
-    
-    <!-- 左側上下切成兩塊 -->
-    <div class="left">
-      <div class="left-top">左上 box</div>
-      <div class="left-bottom">左下 box</div>
+
+    <div class="container">
+        <div class="left-column">
+            <img src="./images/me.png" alt="個人照片" class="photo">
+            <h2>王小明</h2>
+            <p>電話：0912-345-678</p>
+            <p>Email：min@gmail.comm</p>
+            <p>地址：咪咪市卯卯區</p>
+        </div>
+
+        <div class="right-column">
+            <h3>📘學歷與背景</h3>
+            <ul>
+                <li>國立台中科技大學 資訊管理系 學士畢業</li>
+                <li>高中主修電機電子，奠定邏輯與系統操作基礎</li>
+                <li>畢業後曾任職於資訊公司擔任技術助理，協助網頁維護與前端修改</li>
+            </ul>
+
+            <h3>🧰技能概覽</h3>
+            <ul>
+                <li>網頁技術：熟悉 HTML5 / CSS3 / JavaScript</li>
+                <li>響應式設計：掌握 RWD 技巧，能應對不同裝置排版需求</li>
+                <li>前端框架：具基礎 React 與 Vue.js 使用經驗</li>
+                <li>版控工具：能使用 Git 進行版本管理與多人協作</li>
+                <li>設計協作：理解 Figma 標註與切版流程，能依照設計稿完成頁面</li>
+            </ul>
+
+
+            <h3>🔎個人特質</h3>
+            <ul>
+                <li>細心、有責任感，擅長從錯誤中反覆調整與優化</li>
+                <li>喜歡分析介面操作流程，注重使用者視角的設計邏輯</li>
+                <li>能獨立作業也樂於團隊協作，常主動協助同儕解決問題</li>
+                <li>熱衷追蹤新技術，對技術部落格與前端生態有持續關注</li>
+            </ul>
+
+            <h3>🎯求職目標</h3>
+            <ul>
+                <li>期望加入具有學習氛圍的前端團隊，持續提升實務能力</li>
+                <li>希望參與網站從 UI 切版到互動邏輯的完整開發流程</li>
+                <li>長期目標是成為熟悉全端技術，能獨立開發產品的網頁工程師</li>
+                <li>對產品有熱忱，願意投入在改善使用者體驗與性能優化的工作中</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- 右側單一區塊 -->
-    <div class="right">右 box</div>
-
-  </div>
 </body>
+
 </html>
