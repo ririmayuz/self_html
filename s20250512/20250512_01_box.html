@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        p {
+            display: inline;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        d{
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- inline / inline-block / block-->
+    <!-- block裡面有 div p h1-h6 -->
+
+    <!-- inline -->
+    <a href="">1</a>
+    <a href="">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+    <br>
+    <hr><br>
+    <p>
+        (inline)這是段落文字，<span style="color: red;">這裡是紅色</span>，後面繼續文字。
+    </p>
+    <a href="#">這是超連結</a>，也會在同一行顯示。
+    <br>
+    <hr><br>
+    <div style="display: inline-block; width: 200px; height: 150px; background-color: lightblue; text-align: center;">
+        方塊1
+    </div>
+    <div style="display: inline-block; width: 100px; height: 50px; background-color: lightgreen; text-align: center;">
+        方塊 2
+    </div>
+    <br>
+    <hr><br>
+    <div class="d">這是區塊元素</div>
+    <div class="d">會換行出現</div>
+
+</body>
+
+</html>
