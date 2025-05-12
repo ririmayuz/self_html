@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>左右分欄＋左側上下切</title>
+  <style>
+    /* 最外層容器，寬 1000px，置中，內部使用 flex 橫向排列 */
+    .container {
+      width: 80%;
+      height: 400px;
+      margin-top: 10px;   /* 上下間距 */
+      margin-bottom: 10px;
+      margin-left: auto;  /* 置中 */
+      margin-right: auto;
+      display: flex;      /* 設定為 Flexbox，橫向排列子項 */
+      gap: 10px;          /* 左右子項之間的間距 */
+      background-color: #ccc; /* 僅作區塊背景示意用，可刪 */
+      box-sizing: border-box;
+    }
+
+    /* 左側區塊，寬 600px，內部再垂直切分上下兩塊 */
+    .left {
+      width: 600px;
+      display: flex;             /* 設定為 Flexbox 垂直排列 */
+      flex-direction: column;   /* 垂直排列子項（上下） */
+      gap: 10px;                /* 上下區塊之間的間距 */
+    }
+
+    /* 左上的 box，佔高一半 */
+    .left-top,
+    .left-bottom {
+      height: 50%;                 /* 兩個等分高 */
+      background-color: lightblue; /* 可自行調整顏色 */
+    }
+
+    /* 右側區塊，單一 box */
+    .right {
+      width: 390px;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- 整體分為左右兩區塊 -->
+  <div class="container">
+    
+    <!-- 左側上下切成兩塊 -->
+    <div class="left">
+      <div class="left-top">左上 box</div>
+      <div class="left-bottom">左下 box</div>
+    </div>
+
+    <!-- 右側單一區塊 -->
+    <div class="right">右 box</div>
+
+  </div>
+</body>
+</html>
