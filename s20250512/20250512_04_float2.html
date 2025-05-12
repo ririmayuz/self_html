@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grid 1000px</title>
+  <style>
+    .container {
+      width: 1000px;
+      margin: 10px auto; /* 上下也是10px留白 */
+      overflow: hidden;  /* 清除浮動 */
+    }
+
+    .box1, .box2, .box3, .box4 {
+      float: left;
+      height: 33vh;
+      background-color: lightblue;
+      margin-left: 10px;
+    }
+
+    .first {
+      margin-left: 0;
+    }
+
+    .box1 {
+      width: 1000px;
+      margin-left: 0; /* box1 只有一個，不需要 margin */
+    }
+
+    .box2 {
+      width: 495px;
+    }
+
+    .box3 {
+      width: 326.66px;
+    }
+
+    .box4 {
+      width: 242.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box1">1</div>
+  </div>
+
+  <div class="container">
+    <div class="box2 first">21</div>
+    <div class="box2">22</div>
+  </div>
+
+  <div class="container">
+    <div class="box3 first">31</div>
+    <div class="box3">32</div>
+    <div class="box3">33</div>
+  </div>
+
+  <div class="container">
+    <div class="box4 first">41</div>
+    <div class="box4">42</div>
+    <div class="box4">43</div>
+    <div class="box4">44</div>
+  </div>
+
+</body>
+</html>

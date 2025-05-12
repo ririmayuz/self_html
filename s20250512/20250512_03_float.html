@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* both:left或right都可以清除 */
+        /* 在外層的contaioner，類似tr的概念去做換行 */
+        .container {
+            width: 80%;
+            /* height: 100vh; */
+            /* background-color: lightpink; */
+            margin: auto;
+            clear: both;
+        }
+
+        .box {
+            float: left;
+            /* 飄起來，不同z軸 */
+            /* width: 300px; */
+            width: 33%;
+            height: 33vh;
+            background-color: lightblue;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        /* .box22 {
+            float: right;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box11">11</div>
+        <div class="box box22">22</div>
+
+    </div>
+    <div class="container">
+        <div class="box">33</div>
+        <div class="box">44</div>
+    </div>
+</body>
+
+</html>
