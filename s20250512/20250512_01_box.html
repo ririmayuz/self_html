@@ -19,11 +19,6 @@
             height: 100px;
             background-color: lightblue;
         }
-
-        d{
-            display: block;
-        }
-
     </style>
 </head>
 
@@ -38,12 +33,14 @@
     <a href="">4</a>
     <br>
     <hr><br>
+    <li>display: inline</li>
     <p>
-        (inline)這是段落文字，<span style="color: red;">這裡是紅色</span>，後面繼續文字。
+        這是段落文字，<span style="color: red;">這裡是紅色</span>，後面繼續文字。
     </p>
     <a href="#">這是超連結</a>，也會在同一行顯示。
     <br>
     <hr><br>
+    <li>display: inline-block</li>
     <div style="display: inline-block; width: 200px; height: 150px; background-color: lightblue; text-align: center;">
         方塊1
     </div>
@@ -52,9 +49,21 @@
     </div>
     <br>
     <hr><br>
-    <div class="d">這是區塊元素</div>
-    <div class="d">會換行出現</div>
-
+    <li> display: block： 每個元素自成一行，可自由調整寬高與排版。</li>
+    <div style="background-color: lightcoral; padding: 10px;">這是一個區塊元素</div>
+    <p>這是段落</p>
+    <h2>這是標題</h2>
+    <br>
+    <hr><br>
+    <!-- ul li un order 沒有序列 -->
+<ul>
+    <li>a</li>
+    <li>b</li>
+</ul>
+    <!-- ol lo order 有序列 -->
 </body>
-
+<ol>
+    <li>aaaa</li>
+    <li>bbbb</li>
+</ol>
 </html>
