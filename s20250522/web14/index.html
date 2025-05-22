@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>國立科技高中─校園社團介紹網</title>
     <link rel="stylesheet" href="./css/style.css">
+
     <style>
-        *{
+        * {
             box-sizing: border-box;
             margin: 0;
         }
 
-        .header{
+        .header {
             width: 1024px;
             height: 65px;
             background-color: lightblue;
             margin: auto;
         }
+
         /* .header-box{
             width: 1000px;
             height: 65px;
@@ -25,17 +27,55 @@
             margin: auto;
         } */
 
-        .container{
+        .container {
+            display: flex;
             width: 1024px;
             /* 768-65-20 */
             /* -65px跟- 65px是字串跟符號(計算時要空格) */
-            height: calc(768px - 65px -20px);
+            height: calc(768px - 65px - 20px);
             background-color: lightpink;
             margin: auto;
         }
-        .footer{
+
+
+        .container-left {
+            /* width: 50%; */
+            width: 215px;
+            height: 100%;
+            background-color: lightsalmon;
+        }
+        .cl-top {
+            width: 100%;
+            height: calc(100% - 25px);
+            background: aquamarine;
+        }
+        .cl-bottom {
+            width: 100%;
+            height: 25px;
+            background: lightgray;
+        }
+
+
+        .container-right {
+            /* width: 50%; */
+            width: calc(1024px - 215px);
+            height: 100%;
+            background-color: lightpink;
+        }
+        .cr-top {
+            width: 100%;
+            height: 29px;
+            background: lightpink;
+        }
+        .cr-bottom {
+            width: 100%;
+            height: calc(100% - 29px);
+            background: lightyellow;
+        }
+
+        footer {
             width: 1024px;
-            height: 20px;
+            height: 20x;
             background-color: lightgreen;
             margin: auto;
         }
@@ -45,27 +85,39 @@
 <body>
     <!-- header -->
     <header class="header">
-        <h1>text</h1>
-        <!-- <div class="header-box">header-box</div> -->
-        header
+        <div class="header-box">header-box</div>
+
     </header>
     <!-- container -->
     <div class="container">
-        <h3>社團介紹</h3>
-        <!-- left menu -->
-         <div class="menu">
-            
-         </div>
-        <!-- left update -->
-         <div class="update">
+        <!-- container 文字內容 -->
+        <!-- container-left -->
+        <div class="container-left">
+            <!-- cl-top -->
+            <div class="cl-top">
+                cl-top
+            </div>
+            <div class="cl-bottom">
+                cl-bottom
+            </div>
+            <!-- cl-bottom -->
 
-         </div>
+        </div>
+        <!-- container-right -->
+        <div class="container-right">
+            <div class="cr-top">
+                cr-top
+            </div>
+            <div class="cr-bottom">
+                cr-bottom
+            </div>
+            <!-- cr-bottom -->
 
-        <!-- right main -->
+        </div>
     </div>
     <!-- footer -->
     <footer class="footer">
-        網頁設計及維護：XXOOO
+        footer
     </footer>
 </body>
 
