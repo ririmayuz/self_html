@@ -24,52 +24,118 @@
             justify-content: space-around;
             align-items: center;
         }
+
+        .cantainer-contant{
+            font-size: 16px;
+            font-family: '標楷體';
+            color: #FF0000;
+            text-align: left;
+            display: flex;
+            /* 超過100% 換行  */
+            flex-wrap: wrap;
+        }
+        .cantainer-contant>div {
+            margin-top: 10px;            
+        }
+
+        .item-title{
+            width: 100%;
+            /* background-color: lightgreen; */
+        }
+        .item-data{
+            width: 70%;
+            /* background-color: lightpink; */
+        }
+        .item-top{
+            width: 30%;
+            /* background-color: lightblue; */
+            text-align: center;
+            padding-top: 9%;
+        }
+        #day1{
+            color: #0000FF;
+        }
+        #day2{
+            color: #FF0000;
+        }
+        #day3{
+            color: #00FF00;
+        }
+        #day4{
+            color: #000000;
+        }
     </style>
 </head>
 
 <body>
-    <header class="nav-titile">吉他社社史</header>
+    <header>吉他社近期活動公告</header>
     <nav>
-        <a href="./index.html">回社團介紹首頁</a>
+        <a href="./index.html" target="mypage">回社團介紹首頁</a>
         <a href="./guitar_event.html">吉他社近期活動公告</a>
         <a href="./guitar_learning.html">吉他社教學內容</a>
     </nav>
     <nav>
-        <a href="./index.html">九月十六日</a>
-        <a href="./guitar_event.html">十月三十一日</a>
-        <a href="./guitar_learning.html">十二月二十五日</a>
-        <a href="./guitar_learning.html">元月一日</a>
+        <a href="#day1">九月十六日</a>
+        <a href="#day2">十月三十一日</a>
+        <a href="#day3">十二月二十五日</a>
+        <a href="#day4">元月一日</a>
     </nav>
-    近期活動
+
     <div class="cantainer-contant">
-        吉他社社史：
-        本社成立於76年7月15日，迄今五年有餘，
-        初為一群愛好吉他的同學的聚會，後由王小明提議成立吉他社，
-        起初成立時，也遭遇些許困難，但在眾多愛好吉他的同學共同努力下，
-        終於成立吉他社，提供吉他愛好者一個相互交流的園地，
-        王小明並被推舉為第一屆社長。
-        五年多來參加多次全國性比賽，履有佳績，並與其他學校的吉他社皆有密切交流，
-        在校內外不定時舉行吉他音樂會，皆有不錯的評價。
-        未來，在吉他教學上，將朝多元化教學模式發展，並建立吉他社網站，
-        提供更多吉他的教學，讓對吉他有興趣的朋友們，有一個更好的學習園地。
+        <div class="item-title">
+            近期活動
+        </div>
 
-        社長資料：
-        姓名：王小明
-        出生年月日：民國73年10月8日生
-        身高：172公分
-        體重：60公斤
-        星座：天秤座
-        興趣：詩詞，音樂(特別是吉他)
-        經歷：多次參予吉他演奏比賽(民歌比賽)多獲好評
+        <div class="item-data" id="day1">
+            日期：九月十六日<br>
+            活動主題：社員大會<br>
+            地點：吉他社教室<br>
+            主持人：王小明<br>
+            活動內容：<br>
+            1.入社歡迎茶會<br>
+            2.指導老師致詞<br>
+            3.社長致詞<br>
+            4.社規介紹以及教學內容之簡介<br>
+        </div>
+        <div class="item-top"><a href="#">top</a></div>
 
-        指導老師資料：
-        姓名：陳小英
-        出生年月日：民國57年10月22日
-        身高：168公分
-        體重：50公斤
-        星座：天秤座
-        興趣：古典吉他
-        經歷：民歌餐廳駐唱歌手7年、詞曲創作、吉他教學5年。
+        <div class="item-data" id="day2">
+            日期：十月三十一日<br>
+            活動主題：校內吉他表演<br>
+            地點：學校大禮堂<br>
+            領隊：王小明社長<br>
+            表演內容：以吉他演奏演唱民歌，曲目如下<br>
+            1.海浬來的沙<br>
+            2.微風往事<br>
+            3.七月涼山<br>
+            4.明天會更好(大合唱)<br>
+        </div>
+        <div class="item-top"><a href="#">top</a></div>
+
+        <div class="item-data" id="day3">
+            日期：十二月二十五日<br>
+            活動主題：校內吉他比賽<br>
+            地點：學校大禮堂<br>
+            主辦單位：教務處<br>
+            吉他比賽規則：<br>
+            1.凡我玉山高中之學生<br>
+            2.參賽內容可為民歌演唱以及任何純吉他演奏方式如：古典吉他、爵士吉他演奏<br>
+            3.參賽者必須自備樂器<br>
+        </div>
+        <div class="item-top"><a href="#">top</a></div>
+
+        <div class="item-data" id="day4">
+            日期：元月一日<br>
+            活動主題：全國吉他(高中組)演奏比賽<br>
+            地點：台北市社教館<br>
+            主辦單位：教育部<br>
+            比賽規則：<br>
+            1.由學校推舉優秀同學參予<br>
+            2.除推舉參加外，其餘有興趣參賽的同學，請自行報名參加<br>
+            3.參賽規則請參考比賽細則<br>
+        </div>
+        <div class="item-top"><a href="#">top</a></div>
+
     </div>
 </body>
 
