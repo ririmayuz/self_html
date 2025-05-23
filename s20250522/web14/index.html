@@ -26,6 +26,18 @@
             color: #0000FF;
         }
 
+        .cl-title {
+            font-size: 24px;
+            font-weight: 500;
+            font-family: "標楷體";
+            text-align: center;
+            text-decoration: underline;
+            text-decoration-color: black;
+            text-underline-offset: 4px;
+            color: #FF00FF;
+
+        }
+
         /* flex conainer */
         .cl-content {
             display: flex;
@@ -40,10 +52,11 @@
 
         /* flex item */
         /* >大於=下一層 空白=後代全部、少用*/
-        .cl-content>div {
+        .cl-content>div,
+        .item-link {
             /* background-color: blueviolet; */
             /* box沒有垂直置中，只能用padding-top or flex-box推 */
-            background-image: url(./images/menu1.png);
+            background-image: url('./images/menu1.png');
             width: 200px;
             height: 35px;
             text-align: center;
@@ -51,21 +64,14 @@
             padding-top: 8px;
         }
 
-        .cl-content>div:hover{
-            background-image: url(./images/menu2.png);
+        .cl-content>div:hover,
+        .item-link:hover {
+            background-image: url('./images/menu2.png');
         }
-        .cl-title {
-            font-size: 24px;
-            font-weight: 500;
-            font-family: "標楷體";
-            text-align: center;
-            text-decoration: underline;
-            text-decoration-color: black;
-            text-underline-offset: 4px;
-            color: #FF00FF;
-            
-        }
-        .cl-bottom{
+
+        
+
+        .cl-bottom {
             color: #000000;
             font-family: "標楷體";
             font-size: 16px;
@@ -188,14 +194,14 @@
                 </div>
 
                 <div class="cl-content">
-                    <div>
-                        <a href="./guitar_history.html">吉他社</a>
-                    </div>
-                    <div>熱舞社</div>
-                    <div>棒球社</div>
-                    <div>羽球社</div>
-                    <div>足球社</div>
-                    <div>童軍社</div>
+                    <a href="./guitar_history.html" class="item-link" target="myIframe">
+                        <div class="items">吉他社</div>
+                    </a>
+                    <div class="items">熱舞社</div>
+                    <div class="items">棒球社</div>
+                    <div class="items">羽球社</div>
+                    <div class="items">足球社</div>
+                    <div class="items">童軍社</div>
                 </div>
             </div>
             <div class="cl-bottom">
@@ -211,7 +217,7 @@
             </div>
             <div class="cr-bottom">
                 <!-- main -->
-                <iframe src="./main.html" frameborder="0"></iframe>
+                <iframe src="./main.html" frameborder="0" name="myIframe"></iframe>
             </div>
             <!-- cr-bottom main-->
 
