@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <input type="number" name="" id="num1" value="">
+    </p>
+
+    <p>
+        <input type="number" name="" id="num2" value="">
+
+    </p>
+
+    <p>
+        <button type="button" id="myBtn">myBtn</button>
+    </p>
+
+    <script>
+        //1. bind
+        let num1 = document.getElementById('num1');
+        let num2 = document.getElementById('num2');
+        let myBtn = document.getElementById('myBtn');
+        //2. action
+        myBtn.addEventListener('click', function () {
+            console.log('myByn ok');
+            //2-1. 抓num1 value
+            let num1Value = num1.Value;
+            console.log('num1Value', num1Value);
+            //2-2. 抓num2 value
+            let num2Value = num1.Value;
+            console.log('num2Value', num2Value);
+        });
+    </script>
+</body>
+
+</html>

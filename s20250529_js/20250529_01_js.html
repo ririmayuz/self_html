@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,11 @@
             background-color: lightblue;
         }
 
-        .bg-blue{
+        .bg-blue {
             background-color: lightblue;
         }
 
-        .bg-pink{
+        .bg-pink {
             background-color: lightpink;
         }
 
@@ -24,6 +25,7 @@
         } */
     </style>
 </head>
+
 <body>
     <div class="box bg-blue"></div>
     <p>
@@ -34,18 +36,20 @@
         // let box = document.getElementById('box');
         let box = document.querySelector('.box');
         let myBtn = document.getElementById('myBtn');
-        console.log('box',box);
-        console.log('myBtn',myBtn);
+        //echo box
+        console.log('box', box);
+        console.log('myBtn', myBtn);
 
         //2. action
-        myBtn.addEventListener('click',function(){
+        myBtn.addEventListener('click', function () {
             console.log('myBtn ok');
             //change css
             // box.style.backgroundColor = "lightpink";
             //change class
-            box.setAttribute('class','box bg-pink');
+            box.setAttribute('class', 'box bg-pink');
 
         });
     </script>
 </body>
+
 </html>
