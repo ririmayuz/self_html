@@ -6,27 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>四則運算</title>
     <style>
-       
-        
+        .container {
+            display: flex;
+            /* 控制三個 input 之間的間距 */
+            align-items: center;
+            gap: 6px;
+            margin: 20px 0;
+
+        }
+
+        input {
+            width: 10%;
+            color: #64a7fd;
+            padding: 7px;
+            font-size: 16px;
+            border: 1px solid #64a7fd;
+            border-radius: 9px;
+            /* cursor: pointer; */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* text-align: center; */
+        }
+        input:hover{
+            border: 1px solid #6d8db8;
+            background-color: #f7f7f8;
+        }
+
+        #myBtn {
+            background-color: #64a7fd;
+            border: none;
+            color: white;
+            padding: 7px 26px;
+            font-size: 16px;
+            border-radius: 9px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #myBtn:hover {
+            background-color: #6d8db8;
+        }
     </style>
 </head>
 
 <body>
-    <p>
-        <input type="number" name="" id="num1" value="10">
-    </p>
-    <p>
-        <input type="text" name="" id="opt" value="+">
+    <div class="container">
+        <input type="number" class="" id="num1" value="10">
+        <input type="text" class="" id="opt" value="+">
+        <input type="number" class="" id="num2" value="5">
+    </div>
 
-    </p>
-    <p>
-        <input type="number" name="" id="num2" value="5">
+    <div class="btnCt">
+        <p>
+            <button type="button" id="myBtn">開始計算</button>
+        </p>
+    </div>
 
-    </p>
-
-    <p>
-        <button type="button" id="myBtn">myBtn</button>
-    </p>
     <hr>
     <p id="resultP">
         num1 + num2 = ?<br>
@@ -63,28 +97,28 @@
             //2-4. obt switch case
             let result = 0;
             switch (optValue) {
-                case '+' :
-                result = num1Value + num2Value;
-                console.log('result', result);
-                break;
+                case '+':
+                    result = num1Value + num2Value;
+                    console.log('result', result);
+                    break;
 
-                case '-' :
-                result = num1Value - num2Value;
-                console.log('result', result);
-                break;
+                case '-':
+                    result = num1Value - num2Value;
+                    console.log('result', result);
+                    break;
 
-                case '*' :
-                result = num1Value * num2Value;
-                console.log('result', result);
-                break;
+                case '*':
+                    result = num1Value * num2Value;
+                    console.log('result', result);
+                    break;
 
-                case '/' :
-                result = num1Value / num2Value;
-                console.log('result', result);
-                break;
+                case '/':
+                    result = num1Value / num2Value;
+                    console.log('result', result);
+                    break;
 
                 default:
-                break;
+                    break;
             }
             //2-4. result to resultP
             // resultP.innerText = 'num1 + num2 = result';
