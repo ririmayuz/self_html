@@ -27,6 +27,8 @@
     <script>
         //1. bind
         let num1 = document.getElementById('num1');
+        //👉在**整個網頁（document，全域物件）**中，
+        // 找到 ID 是 num1 的元素，然後把它存到變數 num1 裡。
         let num2 = document.getElementById('num2');
         let myBtn = document.getElementById('myBtn');
         let resultP = document.getElementById('resultP');
@@ -37,17 +39,17 @@
             //2-1. 抓num1 value
             let num1Value = Number(num1.value); //轉數字
             console.log('num1Value', num1Value);
-            console.log('num1Value typeof', typeof(num1Value));
+            console.log('num1Value typeof', typeof (num1Value));
 
             //2-2. 抓num2 value
             let num2Value = Number(num2.value);
             console.log('num2Value', num2Value);
-            console.log('num2Value typeof', typeof(num2Value));
+            console.log('num2Value typeof', typeof (num2Value));
 
             //2-3. result = num1 + num2
-            let result=0;
+            let result = 0;
             result = num1Value + num2Value;
-            console.log('result',result);
+            console.log('result', result);
 
             //2-4. result to resultP
             // resultP.innerText = 'num1 + num2 = result';
