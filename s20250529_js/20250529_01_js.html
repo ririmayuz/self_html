@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS第一堂課</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .bg-blue{
+            background-color: lightblue;
+        }
+
+        .bg-pink{
+            background-color: lightpink;
+        }
+
+        /* #box:hover {
+            background-color: lightpink;
+        } */
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <p>
+        <button type="button" id="myBtn">myBtn</button>
+    </p>
+    <script>
+        //1. bind 綁定?
+        let box = document.querySelector('.box');
+        // let box = document.getElementById('box');
+        let myBtn = document.getElementById('myBtn');
+        console.log('box',box);
+        console.log('myBtn',myBtn);
+
+        //2. action
+        myBtn.addEventListener('click',function(){
+            console.log('myBtn ok');
+            //change css
+            // box.style.backgroundColor = "lightpink";
+            //change class
+            box.setAttribute('class','box bg-pink');
+
+        });
+    </script>
+</body>
+</html>
