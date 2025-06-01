@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>履歷表</title>
+    <link rel="stylesheet" href="./style.css">
     <style>
-        body {
-            margin: 0;
-            font-family: sans-serif;
-            background-color: #f5f5f5;
-        }
+
 
         .container {
-            max-width: 900px;
+            width: 900px;
             margin: 40px auto;
             background: white;
             display: flex;
@@ -20,19 +17,17 @@
         }
 
         .left-column {
-            flex: 3;
             background-color: black;
             padding: 20px;
             text-align: center;
-            color: white
+            color: white;
         }
 
         .right-column {
-            flex: 6;
             padding: 20px;
         }
 
-        .photo {
+        .img {
             width: 100%;
             max-width: 150px;
             /* border-radius: 50%; */
@@ -49,7 +44,7 @@
 
     <div class="container">
         <div class="left-column">
-            <img src="./images/me.png" alt="個人照片" class="photo">
+            <img src="./images/me.png" alt="個人照片" class="img">
             <h2>王小明</h2>
             <p>電話：0912-345-678</p>
             <p>Email：min@gmail.comm</p>
