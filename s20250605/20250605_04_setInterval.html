@@ -19,12 +19,23 @@
         .bg-pink {
             background-color: pink;
         }
+
+        .bg-blue {
+            background-color: lightblue;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <button type="button" id="myBtn">myBtn</button>
+    </div>
+    <div class="container">
+        <button type="button" id="stopBtn">stop</button>
     </div>
     <div class="container">
         <div class="box" id="myBox"></div>
@@ -43,24 +54,30 @@
         //2.action
         myBtn.addEventListener('click', function () {
             console.log('myBtn', myBtn);
-            // alert('myBtn click ok');
-            // box.setAttribute('class', 'box bg-pink');
 
-            //1.過三秒變成pink
-            setTimeout(function () {
-                console.log('hihi myBtn');
+            //1.
+            setInterval(function () {
                 box.setAttribute('class', 'box bg-pink');
-            }, 1000);
+                setTimeout(function () {
+                    box.setAttribute('class', 'box bg-blue');;
 
-            //2.
-            //先宣告
-            function sayHelloFun() {
-                console.log('sayHellofun ok');
-            }
-            setTimeout(sayHelloFun, 3000);
+                }, 1000);
+                setTimeout(function () {
+                    box.setAttribute('class', 'box bg-green');;
 
+                }, 2000);
+
+            }, 3000);
         });
 
+        stopBtn.addEventListener('click', function () {
+            console.log('stop', stopBtn);
+
+            function myStopFunction() {
+                clearTimeout(myBtn);
+            }
+            myStopFunction();
+        });
     </script>
 </body>
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>
+        <input type="text" id="myInput">
+    </p>
+
+    <button type="button" id="myBtn">myBtn</button>
+
+    <script>
+        //1.bind
+        let myInput = document.getElementById('myInput');
+        let myBtn = document.getElementById('myBtn');
+        console.log('myBtn', myBtn);
+
+        //2.action
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn ok');
+
+            let getInput = myInput.value;
+            console.log('getInput', getInput);
+
+            // https://www.merriam-webster.com/dictionary/apple
+
+            let url = `https://www.merriam-webster.com/dictionary/${getInput}`;
+            let urlChinese = `https://dictionary.cambridge.org/dictionary/english-chinese-traditional/${getInput}`
+            console.log('url', url);
+            window.open(urlChinese);
+            window.open(url);
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
