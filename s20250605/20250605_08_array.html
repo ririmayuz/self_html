@@ -21,6 +21,12 @@
         let result = Array.isArray(myArr);
         console.log('result', result);
 
+        myArr.forEach((value, key) => {
+            console.log('key', key);
+            console.log('value', value);
+
+        });
+
 
 
         let myObj = {
@@ -33,6 +39,30 @@
         let resultObj = Array.isArray(myObj);
         console.log('resultObj', resultObj);
 
+
+
+        let data = [
+            {
+                'id': 1,
+                'name': 'amy',
+                'mobile': '0911',
+            },
+            {
+                'id': 2,
+                'name': 'bob',
+                'mobile': '0922',
+            },
+            {
+                'id': 3,
+                'name': 'cat',
+                'mobile': '0933',
+            },
+        ];
+
+        data.forEach(element => {
+            console.log('element', element);
+
+        });
 
     </script>
 </body>
