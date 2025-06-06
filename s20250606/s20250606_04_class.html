@@ -46,10 +46,9 @@
             background-color: lightgreen;
         }
 
-        .bg-yellow {
+        .bg-yellow{
             background-color: lightyellow;
         }
-
 
         .box {
             width: 80%;
@@ -62,10 +61,10 @@
 
 <body>
     <div class="container">
-        <button id="redBtn" class="bg-red" type="button" data-color="red">紅色</button>
-        <button id="blueBtn" class="bg-blue" type="button" data-color="blue">藍色</button>
-        <button id="greenBtn" class="bg-green" type="button" data-color="green">綠色</button>
-        <button id="yellowBtn" class="bg-yellow" type="button" data-color="yellow">黃色</button>
+        <button id="redBtn" class="btn bg-red" type="button" data-rank="1" data-color="red">紅色</button>
+        <button id="blueBtn" class="btn bg-blue" type="button" data-rank="2" data-color="blue">藍色</button>
+        <button id="greenBtn" class="btn bg-green" type="button" data-rank="2" data-color="green">綠色</button>
+        <button id="greenBtn" class="btn bg-yellow" type="button" data-rank="3" data-color="yellow">黃色</button>
     </div>
 
     <hr>
@@ -86,18 +85,18 @@
     <script>
         $(document).ready(function () {
             // 1.bind
+            const btn = $('.btn');
             // const redBtn = $('#redBtn');
             // const greenBtn = $('#greenBtn');
             // const blueBtn = $('#blueBtn');
             const myBox = $('#myBox');
-            const btn = $('.btn');
             console.log('redBtn', redBtn);
+            console.log('btn', btn);
 
             //    redBtn = '123';
 
 
             // 2.action
-
             btn.click(function () {
                 console.log('this', this);
                 let tmpColor = $(this).attr('data-color');
@@ -106,6 +105,8 @@
                 // $(selector).removeClas(classNames);
                 // $(selector).addClass(`bg-${tmpColor}`);
             });
+
+
         });
     </script>
 </body>
