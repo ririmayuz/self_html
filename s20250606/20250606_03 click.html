@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            display: inline-block;
+            border-radius: 6px;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 17px;
+            padding: 16px;
+            width: 100px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        button span:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -15px;
+            transition: 0.5s;
+        }
+
+        button:hover span {
+            padding-right: 15px;
+        }
+
+        button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        .box {
+            width: 75%;
+            height: 70vh;
+            background-color: lightgray;
+        }
+
+        .bg-pink {
+            background-color: lightpink;
+        }
+
+        .bg-blue {
+            background-color: lightblue;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="redBtn" class="bg-pink" type="button"><span>pink</span></button>
+        <button id="blueBtn" class="bg-blue" type="button"><span>blue</span></button>
+        <button id="greenBtn" class="bg-green" type="button"><span>green</span></button>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div id="myBox" class="box">
+
+        </div>
+    </div>
+
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            //1.bind
+            const myBox = $('#myBox');
+            const redBtn = $('#redBtn');
+            const blueBtn = $('#blueBtn');
+            const greenBtn = $('#greenBtn');
+
+            console.log('myBox', myBox);
+            console.log('redBtn', redBtn);
+
+            //2.action
+            redBtn.click(function () {
+                console.log('redBtn ok');
+                myBox.attr('class', 'box bg-pink');
+            });
+
+            blueBtn.click(function () {
+                console.log('blueBtn ok');
+                myBox.attr('class', 'box bg-blue');
+            });
+
+            greenBtn.click(function () {
+                console.log('greenBtn ok');
+                myBox.attr('class', 'box bg-green');
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>
