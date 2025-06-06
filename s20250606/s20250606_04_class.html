@@ -46,6 +46,11 @@
             background-color: lightgreen;
         }
 
+        .bg-yellow {
+            background-color: lightyellow;
+        }
+
+
         .box {
             width: 80%;
             height: 70vh;
@@ -80,52 +85,25 @@
     <script>
         $(document).ready(function () {
             // 1.bind
-            const redBtn = $('#redBtn');
-            const greenBtn = $('#greenBtn');
-            const blueBtn = $('#blueBtn');
+            // const redBtn = $('#redBtn');
+            // const greenBtn = $('#greenBtn');
+            // const blueBtn = $('#blueBtn');
             const myBox = $('#myBox');
+            const btn = $('.btn');
             console.log('redBtn', redBtn);
 
             //    redBtn = '123';
 
 
             // 2.action
-            redBtn.click(function () {
-                console.log('redBtn ok');
-                // data
-                // attr
 
+            btn.click(function () {
                 console.log('this', this);
-                console.log('$(this)', $(this));
-                // console.log('$(this)', $('this'));
-
-                // jquery obj 才可以使用jquery method
                 let tmpColor = $(this).attr('data-color');
-                // let tmpColor = $(this).data('color');
-
-                console.log('tmpColor', tmpColor);
-
+                let tmpRank = $(this).attr('data-rank');
                 myBox.attr('class', `box bg-${tmpColor}`);
-            });
-
-            greenBtn.click(function () {
-                console.log('redBtn ok');
-                let tmpColor = $(this).attr('data-color');
-                // let tmpColor = redBtn.data('color');
-
-                console.log('tmpColor', tmpColor);
-
-                myBox.attr('class', `box bg-${tmpColor}`);
-            });
-
-            blueBtn.click(function () {
-                console.log('blueBtn ok');
-                let tmpColor = $(this).attr('data-color');
-                // let tmpColor = redBtn.data('color');
-
-                console.log('tmpColor', tmpColor);
-
-                myBox.attr('class', `box bg-${tmpColor}`);
+                // $(selector).removeClas(classNames);
+                // $(selector).addClass(`bg-${tmpColor}`);
             });
         });
     </script>
