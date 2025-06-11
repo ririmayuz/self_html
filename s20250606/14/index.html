@@ -114,8 +114,8 @@
         <div style="height: 30px;"></div>
         <table>
             <tr>
-                <th>id</th>
-                <th>name</th>
+                <th>編號</th>
+                <th>商品</th>
                 <th>pic</th>
                 <th>單價</th>
                 <th>數量</th>
@@ -146,11 +146,35 @@
                 <td><span class="totals">150</td>
             </tr>
             <tr>
+                <td>4</td>
+                <td>布丁</td>
+                <td><img src="./images/04.jpg" alt=""></td>
+                <td>180</td>
+                <td><input class="counts" data-price="180" type="number" name="" id="" value="1"></td>
+                <td><span class="totals">180</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>蛋糕</td>
+                <td><img src="./images/05.jpg" alt=""></td>
+                <td>200</td>
+                <td><input class="counts" data-price="200" type="number" name="" id="" value="1"></td>
+                <td><span class="totals">200</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>餅乾</td>
+                <td><img src="./images/06.jpg" alt=""></td>
+                <td>80</td>
+                <td><input class="counts" data-price="80" type="number" name="" id="" value="1"></td>
+                <td><span class="totals">80</td>
+            </tr>
+            <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>合計</td>
+                <td>總計</td>
                 <td><span id="originPrice">300</span></td>
             </tr>
         </table>
@@ -259,7 +283,7 @@
                 let endPrice = 0;
                 if (resultSum >= 500) {
                     endPrice = resultSum * 0.8;
-                    originPrice.text(endPrice + ' (已打折)');
+                    originPrice.text(endPrice + ' (折扣價)');
                     originPrice.attr('class', 'text-red');
                 } else {
                     endPrice = resultSum;
