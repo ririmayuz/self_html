@@ -20,5 +20,5 @@ $data = [
         'name' => 'cat',
     ],
 ];
-// dd($data);
+dd($data);
 ?>
