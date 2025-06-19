@@ -14,6 +14,7 @@ $input = $_GET;
 // ];
 
 $input['rank'] = 'A';
+$input['msg'] = 'ok';
 // dd($input);
 
 echo json_encode($input);

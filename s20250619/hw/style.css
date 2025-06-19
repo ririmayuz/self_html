@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    /* margin: 0; */
+}
+
+.container {
+    display: flex;
+    /* 控制三個 input 之間的間距 */
+    align-items: center;
+    gap: 6px;
+    margin: 20px 0;
+
+}
+
+input {
+    width: 60px;
+    color: #64a7fd;
+    padding: 7px;
+    font-size: 16px;
+    border: 1px solid #64a7fd;
+    border-radius: 9px;
+    /* cursor: pointer; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input:hover {
+    border: 1px solid #6d8db8;
+    background-color: #f7f7f8;
+}
+
+#myBtn {
+    background-color: #64a7fd;
+    border: none;
+    color: white;
+    line-height: normal;
+    padding: 7px 26px;
+    font-size: 16px;
+    border-radius: 9px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#myBtn:hover {
+    background-color: #6d8db8;
+}
