@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 80%;
+            text-align: center;
+            margin: auto;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <button type="button" id="myBtn">myBtn</button>
+
+    <table id="myTable">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Open
+            </th>
+            <th>
+                High
+            </th>
+            <th>
+                Low
+            </th>
+            <th>
+                Close
+            </th>
+        </tr>
+        <!-- <tr>
+            <td>06/05/2025</td>
+            <td>203.5</td>
+            <td>204.75</td>
+            <td>200.15</td>
+            <td>200.63</td>
+        </tr> -->
+    </table>
+
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <img src="./data/data.json" alt="" srcset="">
+    <script>
+        $(document).ready(function () {
+
+            // 1.bind
+            let myTable = $('#myTable');
+            let myBtn = $('#myBtn');
+
+            // 2.action
+            myBtn.click(function (e) {
+                // get data.json
+                let url = "./data/data.json";
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    // data: "data",
+                    // dataType: "dataType",
+                    success: function (response) {
+                        console.log('response', response);
+
+                        // 1.抓data
+                        let data = response;
+                        console.log('data', data);
+
+
+                        // 2.data foreach
+                        let tmpText = '';
+                        $.each(data, function (key, value) {
+                            console.log('key', key);
+                            console.log('value', value);
+
+                            //3.put text
+                            tmpText += `
+                            <tr>
+                                <td>${value.Date}</td>
+                                <td>${value.Open}</td>
+                                <td>${value.High}</td>
+                                <td>${value.Low}</td>
+                                <td>${value.Close}</td>
+                            </tr>
+                        `;
+                        });
+                        console.log('tmpText', tmpText);
+                        myTable.append(tmpText);
+
+                    }
+                });
+
+            });
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>
