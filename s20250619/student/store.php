@@ -7,6 +7,12 @@ function dd($data)
 }
 
 $input = $_GET;
+
+// $input =[
+//     'name' => 'test',
+//     'mobile' => '0911'
+// ];
+
 $input['rank'] = 'A';
 // dd($input);
 
