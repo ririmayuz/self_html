@@ -4,15 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>php</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <form action="./data/store.php" method="get">
+    <form action="./data/store_php.php" method="get">
         <div class="container">
             <input type="number" id="num1" name="num1" value="100">
-            <input type="text" id="opt" name="opt" value="+">
+
+            <!-- <input type="text" id="opt" name="opt" value="+"> -->
+            <select id="opt" name="opt">
+                <option value="+">＋</option>
+                <option value="-">－</option>
+                <option value="*">×</option>
+                <option value="/">÷</option>
+            </select>
+
             <input type="number" id="num2" name="num2" value="50">
         </div>
         <div class="btn">

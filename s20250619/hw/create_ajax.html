@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <form action="./data/store_ajax.php" method="get" id="myForm">
+        <div class="container">
+            <input type="number" id="num1" name="num1" value="100">
+
+            <!-- <input type="text" id="opt" name="opt" value="+"> -->
+            <select id="opt" name="opt">
+                <option value="+">＋</option>
+                <option value="-">－</option>
+                <option value="*">×</option>
+                <option value="/">÷</option>
+            </select>
+
+            <input type="number" id="num2" name="num2" value="50">
+        </div>
+        <div class="btn">
+            <p>
+                <button type="submit" id="myBtn">計算</button>
+            </p>
+        </div>
+    </form>
+
+    <h3>結果：<span id="result" style="color:#64a7fd;"></span></h3>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+         $(document).ready(function () {
+            // 1.bind
+            const myForm = $('#myForm');
+
+
+            // 2.action
+            myForm.submit(function (e) {
+                e.preventDefault();
+                console.log('e', e);
+                let confirmed = confirm('是否送出?');
+                console.log('confirmed', confirmed);
+
+                if (!confirmed) {
+                    return false;
+                }
+
+                console.log('ok');
+
+                // ajax
+                let url = './data/store_ajax.php';
+                let data = $(this).serializeArray();
+
+                console.log('data', data);
+
+
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('response', response);
+                        $('#result').text(response.result);
+
+                    }
+                });
+
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
