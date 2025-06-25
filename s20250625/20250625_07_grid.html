@@ -14,70 +14,92 @@
             width: 100%;
             height: 20vh;
             background-color: rgb(169, 192, 241);
+            margin-top: 15px;
+        }
+
+        .box:hover::after {
+            content: " ★";
+            color: gold;
+            font-size: 20px;
         }
     </style>
 
 </head>
 
 <body>
-
+    <!-- navbar -->
+     <div class="navbar navbar-expand-sm bg-info">
+        <div class="container-fuild">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a herf="#" class="nav-link">link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a herf="#" class="nav-link">link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a herf="#" class="nav-link">link 3</a>
+                </li>
+            </ul>
+        </div>
+     </div>
     <!-- container row col -->
-     <div class="container text-center mt-3">
+    <div class="container text-center mt-3">
         <div class="row">
             <div class="col">
                 <div class="box">1</div>
             </div>
         </div>
-     </div>
+    </div>
 
-     <div class="container text-center mt-3">
+    <div class="container text-center mt-3">
         <div class="row">
-            <div class="col">
+            <div class="col col-sm-5">
                 <div class="box">2-1</div>
             </div>
 
-            <div class="col">
+            <div class="col col-sm-5">
                 <div class="box">2-2</div>
             </div>
-            
-        </div>
-     </div>
 
-     <div class="container text-center mt-3">
+        </div>
+    </div>
+
+    <div class="container text-center mt-3">
         <div class="row">
-            <div class="col">
+            <div class="col-md-4">
                 <div class="box">3-1</div>
             </div>
 
-            <div class="col">
+            <div class="col-md-4">
                 <div class="box">3-2</div>
             </div>
 
-            <div class="col">
+            <div class="col-md-4">
                 <div class="box">3-3</div>
             </div>
         </div>
-     </div>
+    </div>
 
-     <div class="container text-center mt-3">
+    <div class="container text-center mt-3">
         <div class="row">
-            <div class="col">
+            <div class="col-sm-6 col-lg-3">
                 <div class="box">4-1</div>
             </div>
 
-            <div class="col">
+            <div class="col-sm-6 col-lg-3">
                 <div class="box">4-2</div>
             </div>
 
-            <div class="col">
+            <div class="col-sm-6 col-lg-3">
                 <div class="box">4-3</div>
             </div>
 
-            <div class="col">
+            <div class="col-sm-6 col-lg-3">
                 <div class="box">4-4</div>
             </div>
         </div>
-     </div>
+    </div>
 
 
 
