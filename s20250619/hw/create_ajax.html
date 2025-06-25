@@ -39,18 +39,21 @@
 
 
     <script>
-         $(document).ready(function () {
+        $(document).ready(function () {
             // 1.bind
             const myForm = $('#myForm');
 
 
             // 2.action
             myForm.submit(function (e) {
-                e.preventDefault();
+                e.preventDefault(); // 阻止表單的預設送出行為(頁面重新整理)
                 console.log('e', e);
+
+                // 跳出確認視窗，詢問使用者是否確定送出
                 let confirmed = confirm('是否送出?');
                 console.log('confirmed', confirmed);
 
+                // 如果使用者按取消，就直接停止函式執行，不送出資料
                 if (!confirmed) {
                     return false;
                 }
@@ -59,10 +62,10 @@
 
                 // ajax
                 let url = './data/store_ajax.php';
+                // 將表單資料序列化成陣列，準備送出
                 let data = $(this).serializeArray();
 
                 console.log('data', data);
-
 
                 $.ajax({
                     type: "get",
@@ -70,16 +73,14 @@
                     data: data,
                     dataType: "json",
                     success: function (response) {
+                        // 請求成功後執行，參數 response 是伺服器回傳的 JSON 物件
                         console.log('response', response);
+                        // 將回傳結果的 result 欄位文字顯示在結果區塊
                         $('#result').text(response.result);
 
                     }
                 });
-
-
             });
-
-
         });
     </script>
 </body>

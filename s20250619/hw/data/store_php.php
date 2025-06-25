@@ -45,6 +45,5 @@ switch ($opt) {
         break;
 }
 
-
 $data['result'] = $result;
 dd($data);
