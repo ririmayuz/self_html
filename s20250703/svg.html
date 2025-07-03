@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>可愛貓咪頭</title>
+  <style>
+    .eye {
+      transform-origin: center;
+      animation: blink 4s infinite;
+    }
+
+    @keyframes blink {
+      0%, 90%, 100% { transform: scaleY(1); }
+      95% { transform: scaleY(0.05); }
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 200 200" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+    <!-- 頭圓形 -->
+    <circle cx="100" cy="100" r="70" fill="#FFF4D6" stroke="#444" stroke-width="2" />
+
+    <!-- 耳朵 -->
+    <polygon points="40,60 60,20 70,65" fill="#FFF4D6" stroke="#444" stroke-width="2"/>
+    <polygon points="130,65 140,20 160,60" fill="#FFF4D6" stroke="#444" stroke-width="2"/>
+    
+    <!-- 耳朵內側 -->
+    <polygon points="52,60 60,30 66,60" fill="#F9CADA"/>
+    <polygon points="134,60 140,30 148,60" fill="#F9CADA"/>
+    
+    <!-- 眼睛 -->
+    <ellipse class="eye" cx="75" cy="100" rx="7" ry="10" fill="#333"/>
+    <ellipse class="eye" cx="125" cy="100" rx="7" ry="10" fill="#333"/>
+
+    <!-- 鼻子 -->
+    <circle cx="100" cy="115" r="3" fill="#F08080"/>
+
+    <!-- 嘴巴 -->
+    <path d="M97,120 Q100,125 103,120" stroke="#444" stroke-width="2" fill="none" />
+
+    <!-- 小鬍鬚 -->
+    <line x1="55" y1="110" x2="70" y2="110" stroke="#555" stroke-width="2"/>
+    <line x1="55" y1="115" x2="70" y2="117" stroke="#555" stroke-width="2"/>
+    <line x1="130" y1="110" x2="145" y2="110" stroke="#555" stroke-width="2"/>
+    <line x1="130" y1="117" x2="145" y2="115" stroke="#555" stroke-width="2"/>
+  </svg>
+</body>
+</html>

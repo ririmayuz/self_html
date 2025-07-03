@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font-awesome     -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #212529;
@@ -60,6 +64,10 @@
             padding-top: 5%;
         }
 
+        h4 {
+            padding: 3%;
+        }
+
         .box1 {
             border: 2px solid lightgrey;
             border-radius: 10px;
@@ -83,20 +91,15 @@
 
         }
 
-        .text-start {
+        .text-start,
+        .card-body {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .box1 img {
-            margin-bottom: 5%;
-            /* 圖片和文字間距 */
-            /* 可以加一點圓角更美觀 */
+            /* text-align: center; */
+            /* padding-left: 1rem; */
+            /* padding-right: 1rem; */
         }
 
         .box1 ul {
@@ -111,6 +114,7 @@
         .box1 ul li {
             margin-bottom: 5px;
             padding-left: 15px;
+            border-bottom: 1px dashed #ccc;
         }
 
         .card-img03 {
@@ -122,7 +126,6 @@
             object-fit: cover;
             object-position: center;
         }
-
     </style>
 
 </head>
@@ -132,7 +135,9 @@
     <!-- nav -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+            <a class="navbar-brand" href="javascript:void(0)">
+                <i class="fa-solid fa-paw" style="color: #a5bfe9;"> moi .</i>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -142,7 +147,9 @@
                         <a class="nav-link" href="#">Link</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#box1">Link</a>
+                        <a class="nav-link" href="#box1">
+                            店員介紹
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#box2">Link</a>
@@ -189,13 +196,39 @@
     </div>
     <!-- Carousel end-->
 
-    <h3>貓咪店員介紹</h3>
+    <h3>
+        <i class="fa-solid fa-fish " style="color: #969696;"> Cat Staff Profiles</i>
+        </i>
+    </h3>
 
     <!-- container1 -->
     <div id="box1" class="container mt-5">
         <div class="row">
             <div class="col-12 col-sm-4 mt-3">
-                <div class="box1 pb-4">
+                <div class="card box1" style="width:400px">
+                    <img class="card-img-top" src="./images/01.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body text-white">
+                        <h4 class="card-title">
+                            <i class="fa-solid fa-fish " style="color: #ffffff;"></i>
+                            Mini（迷你）
+                        </h4>
+                        <div>
+                            <ul class="card-text pb-4 mb-3">
+                                <li><strong>職位：</strong>迎賓接待員</li>
+                                <li><strong>年齡：</strong>3 歲</li>
+                                <li><strong>個性：</strong>活潑好奇，喜歡與人互動</li>
+                                <li><strong>特色：</strong>見人就喵，主動討摸</li>
+                                <li><strong>最愛：</strong>靠窗曬太陽、紙袋遊戲</li>
+                                <li><strong>識別特徵：</strong>耳朵內有一撮白毛</li>
+                                <li><strong>休息時段：</strong>每日中午 12:00–14:00</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-dark">
+                            <i class="fa-solid fa-heart" style="color: #fe58a8;"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="box1 pb-4">
                     <img class="img-fluid" src="./images/01.jpg" alt="">
                     <div>
                         <ul class="text-start pb-4 mb-3">
@@ -209,12 +242,35 @@
                             <li><strong>休息時段：</strong>每日中午 12:00–14:00</li>
                         </ul>
                     </div>
+                </div> -->
 
-                </div>
             </div>
 
             <div class="col-12 col-sm-4 mt-3">
-                <div class="box1 pb-4">
+                <div class="card box1" style="width:400px">
+                    <img class="card-img-top" src="./images/02.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body text-white">
+                        <h4 class="card-title">
+                            <i class="fa-solid fa-fish " style="color: #ffffff;"></i>
+                            Mori（森森）
+                        </h4>
+                        <div>
+                            <ul class="card-text  pb-4 mb-3">
+                                <li><strong>職位：</strong>貓咖啡廳店長</li>
+                                <li><strong>年齡：</strong>6 歲</li>
+                                <li><strong>個性：</strong>沉穩溫柔，安靜陪伴顧客</li>
+                                <li><strong>擅長：</strong>觀察顧客情緒，給予陪伴</li>
+                                <li><strong>最愛：</strong>躺在吧台下打盹</li>
+                                <li><strong>識別特徵：</strong>臉上有淺色痣</li>
+                                <li><strong>休息時段：</strong>每日下午 13:00–15:00</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-dark">
+                            <i class="fa-solid fa-heart" style="color: #fe58a8;">1234</i>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="box1 pb-4">
                     <img class="img-fluid" src="./images/02.jpg" alt="">
                     <ul class="text-start pb-4 mb-3">
                         <li><strong>暱稱：</strong>Mori（森森）</li>
@@ -226,7 +282,7 @@
                         <li><strong>識別特徵：</strong>臉上有淺色痣</li>
                         <li><strong>休息時段：</strong>每日下午 13:00–15:00</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-12 col-sm-4 mt-3">
@@ -248,7 +304,7 @@
     </div>
     <!-- container1 end -->
 
-</div>
+    </div>
 
     <!-- 載入bs5 js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
