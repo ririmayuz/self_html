@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .card-body-bg {
+            background-image: url('./image/01.png');
+            background-size: 40%;
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-color: rgb(250, 242, 174);
+        }
+    </style>
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-row">
+            <!-- <div class="col-12 col-sm-4 mt-3">
+
+                <div class="card" style="width: 450px;">
+                    <div class="card-header bg-dark text-white fw-bold">
+                        <span class="name">非洲獅</span>
+                        <span class="data-id text-danger">1</span>
+                    </div>
+                    <div class="card-body card-body-bg">
+                        <p class="scientific-name">學名： Panthera leo</p>
+                        <p class="size-category">體型分類： 大型</p>
+                        <p class="habitat">棲息地： 非洲稀樹草原</p>
+                    </div>
+                    <div class="card-footer bg-dark text-white fw-bold">
+                        <span class="conservation-status">保育狀況： 易危 （VU）</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./data/data.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //1.bind
+            const myRow = $('.my-row');
+
+            //2.action
+
+            console.log('data', data);
+            data.forEach(function (value, key) {
+                console.log('key', key);
+                console.log('value', value);
+
+                let tmpText =
+                `
+                <div class="col-12 col-sm-4 mt-3 g-5">
+                    <div class="card" style="width: 450px;">
+                        <div class="card-header bg-dark text-white fw-bold d-flex justify-content-between">
+                            <span class="name">${value.name}</span>
+                            <span class="data-id text-danger">${value.id}</span>
+                        </div>
+                        <div class="card-body card-body-bg">
+                            <p class="scientific-name">學名：${value.scientific_name}</p>
+                            <p class="size-category">體型分類：${value.size_category}</p>
+                            <p class="habitat">棲息地：${value.habitat}</p>
+                        </div>
+                        <div class="card-footer bg-dark text-white fw-bold">
+                            <span class="conservation-status">保育狀況：${value.conservation_status}</span>
+                        </div>
+                    </div>
+                </div>
+                `;
+                myRow.append(tmpText);
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

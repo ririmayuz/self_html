@@ -50,13 +50,31 @@
         // 4.那我這個月 總共要發多少
 
         let sum = 0;
+        // myArr.forEach(function (value, key) {
+        //     let tpmValue = 0;
+        //     let bonus = 5000;
+        //     if (value < 50000) {
+        //         tpmValue = (bonus + value + 10000);
+        //     } else {
+        //         tpmValue = (bonus + value);
+        //     }
+        //     tmpArr.push(tpmValue);
+        //     sum += tpmValue;
+        // });
+
+        // console.log('tmpArr', tmpArr);
+        // console.log('sum', sum);
+
+
         myArr.forEach(function (value, key) {
             let tpmValue = 0;
             let bonus = 5000;
+            let newBonus = 10000;
             if (value < 50000) {
-                tpmValue = (bonus + value + 10000);
+                tpmValue = bonus + value + newBonus;
+
             } else {
-                tpmValue = (bonus + value);
+                tpmValue = bonus + value;
             }
             tmpArr.push(tpmValue);
             sum += tpmValue;
@@ -64,14 +82,6 @@
 
         console.log('tmpArr', tmpArr);
         console.log('sum', sum);
-
-
-
-
-
-
-
-
 
 
 
