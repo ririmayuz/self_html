@@ -37,43 +37,40 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
-        //1.bind
+        // 1.bind
         let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        let newArr = [];
+        // const classBtn = document.querySelectorAll('.class-btn');
 
-        const classBtn = $('.class-btn');
-        console.log('classBtn', classBtn);
-
-
-
-        //2.action
-
-        //js foreach 反過來
-        console.log('js foreach');
+        // 2.action
 
         myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        });
+            // > 3
+            if (value > 3) {
+                // array push ? 把 myArr 裡所有大於 3 的數字，一個一個挑出來，丟到 newArr 的最後面
+                newArr.push(value);
+            }
 
-        //jq each 用於更多資料型態 data jq-obj..
-        console.log('jq each');
-
-        $.each(myArr, function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
 
         });
 
-        //jq each
-        console.log('jq each by jq-obj');
+        console.log('newArr', newArr);
 
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
-            
+        //let 新陣列 = 舊陣列.filter(function (每一個值, 它的位置) {
+        //return 判斷條件（true 才會留下來）
+        //});
+        let filterArr = myArr.filter(function (value, key) {
+            return value > 2;
         });
+
+        console.log('fitlerArr', filterArr);
+
+
+
+
+
+
+
     </script>
 </body>
 

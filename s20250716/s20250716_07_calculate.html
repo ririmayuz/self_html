@@ -37,43 +37,44 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
-        //1.bind
-        let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        // 1.bind
+        let myArr = [30000, 40000, 50000, 60000];
+        let tmpArr = [];
+        // const classBtn = document.querySelectorAll('.class-btn');
 
-        const classBtn = $('.class-btn');
-        console.log('classBtn', classBtn);
+        // 2.action
 
+        // 1.薪水 = [30000,40000,50000,60000];
+        // 2.提撥新人獎金 10000 ( < 50000) [40000, 50000 , 50000 ,60000]
+        // 3.每個人獎金 = 5000 [45000,55000,55000,65000]
+        // 4.那我這個月 總共要發多少
 
-
-        //2.action
-
-        //js foreach 反過來
-        console.log('js foreach');
-
+        let sum = 0;
         myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
+            let tpmValue = 0;
+            let bonus = 5000;
+            if (value < 50000) {
+                tpmValue = (bonus + value + 10000);
+            } else {
+                tpmValue = (bonus + value);
+            }
+            tmpArr.push(tpmValue);
+            sum += tpmValue;
         });
 
-        //jq each 用於更多資料型態 data jq-obj..
-        console.log('jq each');
+        console.log('tmpArr', tmpArr);
+        console.log('sum', sum);
 
-        $.each(myArr, function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
 
-        });
 
-        //jq each
-        console.log('jq each by jq-obj');
 
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
-            
-        });
+
+
+
+
+
+
+
     </script>
 </body>
 

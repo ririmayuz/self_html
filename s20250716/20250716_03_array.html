@@ -37,43 +37,27 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
-        //1.bind
+        // 1.bind
         let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        // const classBtn = document.querySelectorAll('.class-btn');
 
-        const classBtn = $('.class-btn');
-        console.log('classBtn', classBtn);
+        // 2.action
 
-
-
-        //2.action
-
-        //js foreach 反過來
-        console.log('js foreach');
-
+        //sum array data
+        let sum = 0;
         myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        });
-
-        //jq each 用於更多資料型態 data jq-obj..
-        console.log('jq each');
-
-        $.each(myArr, function (key, value) {
+            sum += value;
             console.log('key', key);
             console.log('value', value);
 
         });
 
-        //jq each
-        console.log('jq each by jq-obj');
+        console.log('sum', sum);
 
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
-            
-        });
+
+
+
+
     </script>
 </body>
 

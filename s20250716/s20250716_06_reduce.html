@@ -37,43 +37,43 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
 
-        //1.bind
+        // 1.bind
         let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        let newArr = [];
+        // const classBtn = document.querySelectorAll('.class-btn');
 
-        const classBtn = $('.class-btn');
-        console.log('classBtn', classBtn);
-
-
-
-        //2.action
-
-        //js foreach 反過來
-        console.log('js foreach');
-
+        // 2.action
+        let sum = 0;
+        let defaultTotal = 10000;
         myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        });
-
-        //jq each 用於更多資料型態 data jq-obj..
-        console.log('jq each');
-
-        $.each(myArr, function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-
-        });
-
-        //jq each
-        console.log('jq each by jq-obj');
-
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
             
+            sum += value;
         });
+
+        sum += defaultTotal;
+        console.log('foreach-sum', sum);
+        
+
+
+        // reduce total
+        // function 內 total 可以給預設值 100
+        let tmp = myArr.reduce(function (total, value, key) {
+            console.log('key', key);
+            console.log('total', total);
+            console.log('value', value);
+            return total + value;
+        }, 100);
+
+        console.log('tmp', tmp);
+
+
+        
+
+
+
+
+
+
     </script>
 </body>
 
