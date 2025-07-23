@@ -36,7 +36,7 @@
     <div class="container mt-3">
         <div class="row text-white text-center" style="height: 50px;">
             <div class="col bg-black d-flex align-items-center justify-content-center rounded-start">
-                <span>60</span>
+                <span class="text-info display-6" id="time">60</span>
             </div>
             <div class="col bg-primary d-flex align-items-center justify-content-center">
                 <span>投籃大賽</span>
@@ -96,7 +96,10 @@
         const shotBtn = document.getElementById("shotBtn");
         const stopBtn = document.getElementById("stopBtn");
         const scoreSpan = document.getElementById("score");
+        const timeSpan = document.getElementById("time");
         let score = 0;
+        let startTime = 35;
+        let myInterval = null;
         
         console.log('startBtn', startBtn);
         console.log('shotBtn', shotBtn);
@@ -112,6 +115,20 @@
             console.log('startBtn click ok');
             this.setAttribute('class', 'btn btn-primary class-btn me-5 mb-5 hide-btn ');
             shotBtn.setAttribute('class', 'btn btn-success class-btn me-5  mb-5 show-btn');
+
+            myInterval = setInterval(()=>{
+                startTime--;
+                timeSpan.innerHTML = startTime;
+                
+                if(startTime < 1){
+                    clearInterval(myInterval);
+                }
+                
+                if(startTime < 26){
+                    timeSpan.setAttribute('class','text-danger display-6')
+                }
+
+            },1000);
 
         });
         shotBtn.addEventListener('click', function () {
