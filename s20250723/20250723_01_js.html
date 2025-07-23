@@ -19,6 +19,14 @@
             width: 75px;
             height: 38px;
         }
+
+        .hide-btn {
+            display: none;
+        }
+
+        .show-btn {
+            display: inline;
+        }
     </style>
 
 </head>
@@ -38,35 +46,38 @@
             </div>
         </div>
     </div>
+
+
     <div class="container mt-3">
         <div class="row">
+            <div class="col-4 text-center">
+                01
+            </div>
+            <div class="col-4 text-center">
+                <span id="score">100</span>
+            </div>
+            <div class="col-4 text-center">
+                03
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="row">
             <div class="col-2">
-                100
             </div>
             <div class="col-8 text-center">
                 <img src="./images/01.png" alt="">
-                <button id="myBtn" type="button" class="btn btn-dark class-btn me-5 mb-5">開始</button>
-                <button id="myBtn" type="button" class="btn btn-dark class-btn mb-5">停止</button>
+                <button id="startBtn" type="button" class="btn btn-primary class-btn me-5 mb-5">開始</button>
+                <button id="shotBtn" type="button" class="btn btn-success class-btn me-5 mb-5">投籃</button>
+                <button id="stopBtn" type="button" class="btn btn-danger class-btn mb-5">停止</button>
             </div>
             <div class="col-2">
-                100
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
 
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-
-            </div>
-        </div>
-    </div>
 
 
 
@@ -80,6 +91,43 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        // bind
+        const startBtn = document.getElementById("startBtn");
+        const shotBtn = document.getElementById("shotBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const scoreSpan = document.getElementById("score");
+        let score = 0;
+        
+        console.log('startBtn', startBtn);
+        console.log('shotBtn', shotBtn);
+        console.log('stopBtn', stopBtn);
+
+        // shotBtn hideBtn
+        shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
+
+
+
+        // action
+        startBtn.addEventListener('click', function () {
+            console.log('startBtn click ok');
+            this.setAttribute('class', 'btn btn-primary class-btn me-5 mb-5 hide-btn ');
+            shotBtn.setAttribute('class', 'btn btn-success class-btn me-5  mb-5 show-btn');
+
+        });
+        shotBtn.addEventListener('click', function () {
+            console.log('shotBtn click ok');
+            //加分
+            score += 2;
+            scoreSpan.innerHTML = score;
+
+        });
+        stopBtn.addEventListener('click', function () {
+            console.log('stopBtn click ok');
+
+            score = 0;
+            scoreSpan.innerHTML = score;
+
+        });
         $(document).ready(function () {
 
 
