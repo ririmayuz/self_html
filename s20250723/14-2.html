@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>🏀🏀🏀🏀</title>
     <!-- 載入bs5 css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
@@ -16,7 +16,8 @@
         }
 
         button {
-            width: 75px;
+            /* width: 75px; */
+            width: auto;
             height: 38px;
         }
 
@@ -27,6 +28,10 @@
         .show-btn {
             display: inline;
         }
+
+        #pauseOverlay {
+            z-index: 10;
+        }
     </style>
 
 </head>
@@ -35,14 +40,15 @@
 
     <div class="container mt-3">
         <div class="row text-white text-center" style="height: 50px;">
-            <div class="col bg-black d-flex align-items-center justify-content-center rounded-start">
-                <span class="text-info display-6" id="time">60</span>
+            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-start-5">
+                <span class="text-info display-6" id="time">20</span>
             </div>
-            <div class="col bg-primary d-flex align-items-center justify-content-center">
-                <span>投籃大賽</span>
+            <div class="col-4 col-sm-4 bg-primary d-flex align-items-center justify-content-center">
+                <span class="fs-5" id="score">🏀🏀🏀</span>
             </div>
-            <div class="col bg-black d-flex align-items-center justify-content-center rounded-end">
-                <span>最高分數:</span>
+            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-end-5">
+                最高分數：
+                <span id="maxScore"></span>
             </div>
         </div>
     </div>
@@ -50,31 +56,25 @@
 
     <div class="container mt-3">
         <div class="row">
-            <div class="col-4 text-center">
-                01
+            <div class="col-4 col-sm-4 text-center">
+
             </div>
-            <div class="col-4 text-center">
-                <span id="score">100</span>
+            <div class="col-4 col-sm-4 text-center">
+                <span></span>
             </div>
-            <div class="col-4 text-center">
-                03
+            <div class="col-4 col-sm-4 text-center">
+
             </div>
         </div>
     </div>
 
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-8 text-center">
-                <img src="./images/01.png" alt="">
-                <button id="startBtn" type="button" class="btn btn-primary class-btn me-5 mb-5">開始</button>
-                <button id="shotBtn" type="button" class="btn btn-success class-btn me-5 mb-5">投籃</button>
-                <button id="stopBtn" type="button" class="btn btn-danger class-btn mb-5">停止</button>
-            </div>
-            <div class="col-2">
-            </div>
+
+    <div class="container text-center">
+        <img src="./images/01.png" class="" style="max-width: 70%;" alt="">
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+            <button id="startBtn" class="btn btn-primary class-btn">開始</button>
+            <button id="shotBtn" class="btn btn-success class-btn hide-btn">投籃</button>
+            <button id="stopBtn" class="btn btn-danger class-btn">停止</button>
         </div>
     </div>
 
@@ -97,53 +97,83 @@
         const stopBtn = document.getElementById("stopBtn");
         const scoreSpan = document.getElementById("score");
         const timeSpan = document.getElementById("time");
+        const maxScoreSpan = document.getElementById("maxScore");
+
+
         let score = 0;
-        let startTime = 13;
-        let bonusTime = 5;
+        let startTime = 20;
+        let bonusTime = 11;
+        let maxScore = 0;
+
+        //最高分數重設
+        // localStorage.setItem('maxScore', 20);
+        let getMaxScore = Number(localStorage.getItem('maxScore'));
+        if (getMaxScore) {
+            maxScore = getMaxScore;
+        }
+        console.log('maxScore', maxScore);
+        console.log('maxScore typeof', typeof (maxScore));
+
 
         let myInterval = null;
-        
+
         console.log('startBtn', startBtn);
         console.log('shotBtn', shotBtn);
         console.log('stopBtn', stopBtn);
+
+        // set maxScoreSpan
+        maxScoreSpan.innerHTML = maxScore;
 
         // shotBtn hideBtn
         shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
 
 
-
         // action
+        //開始遊戲
         startBtn.addEventListener('click', function () {
             console.log('startBtn click ok');
             this.setAttribute('class', 'btn btn-primary class-btn me-5 mb-5 hide-btn ');
             shotBtn.setAttribute('class', 'btn btn-success class-btn me-5  mb-5 show-btn');
 
-            myInterval = setInterval(()=>{
+            myInterval = setInterval(() => {
                 startTime--;
                 timeSpan.innerHTML = startTime;
-                
-                if(startTime < 1){
+
+                if (startTime < 1) {
                     clearInterval(myInterval);
                 }
-                
-                if(startTime < bonusTime){
-                    timeSpan.setAttribute('class','text-danger display-6')
+
+                if (startTime < bonusTime) {
+                    timeSpan.setAttribute('class', 'text-danger display-6')
                 }
 
-            },1000);
+            }, 1000);
 
         });
+
+        //投籃
         shotBtn.addEventListener('click', function () {
             console.log('shotBtn click ok');
             //加分
-            if(startTime < 1){
+            if (startTime < 1) {
                 return false;
             }
 
-            if(startTime > bonusTime){
+            if (startTime > bonusTime) {
                 score += 2;
-            } else 
+            } else {
+                score += 3;
+            }
             scoreSpan.innerHTML = score;
+
+
+            //計算最高分數
+            //儲存最高分數
+            if (score > maxScore) {
+                maxScore = score;
+                localStorage.setItem('maxScore', maxScore);
+                maxScoreSpan.innerHTML = maxScore;
+            }
 
         });
 
@@ -153,9 +183,25 @@
             console.log('stopBtn click ok');
 
             score = 0;
-            scoreSpan.innerHTML = score;
+            scoreSpan.innerHTML = '🏀🏀🏀';
+
+            // stop timer
+            clearInterval(myInterval);
+            startTime = 20;
+            timeSpan.innerHTML = startTime;
+            timeSpan.setAttribute('class', 'text-info display-6')
+
+            // shotBtn hideBtn
+            shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 mb-5 hide-btn');
+
+            // startBtn showBtn
+            startBtn.setAttribute('class', 'btn btn-primary class-btn me-5 mb-5 show-btn');
+
+
 
         });
+
+
         $(document).ready(function () {
 
 

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏀🏀🏀🏀</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        img {
+            width: 90%;
+            height: auto;
+        }
+
+        button {
+            /* width: 75px; */
+            width: auto;
+            height: 38px;
+        }
+
+        .hide-btn {
+            display: none;
+        }
+
+        .show-btn {
+            display: inline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <div class="row text-white text-center" style="height: 50px;">
+            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-start-5">
+                <span class="text-info display-6" id="time">20</span>
+            </div>
+            <div class="col-4 col-sm-4 bg-primary d-flex align-items-center justify-content-center">
+                <span id="score" class="fs-5">🏀🏀🏀</span>
+            </div>
+            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-end-5">
+                最高分數：
+                <span id="maxScore"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-2"></div>
+            <div class="col-12 col-sm-8 text-center position-relative">
+                <img src="./images/01.png" alt="">
+                
+                <!-- 按鈕群組（使用 flex 排列） -->
+                <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                    <button id="startBtn" type="button" class="btn btn-primary class-btn">開始</button>
+                    <button id="shotBtn" type="button" class="btn btn-success class-btn hide-btn">投籃</button>
+                    <button id="stopBtn" type="button" class="btn btn-danger class-btn">停止</button>
+                </div>
+
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // bind
+        const startBtn = document.getElementById("startBtn");
+        const shotBtn = document.getElementById("shotBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const scoreSpan = document.getElementById("score");
+        const timeSpan = document.getElementById("time");
+        const maxScoreSpan = document.getElementById("maxScore");
+
+        let score = 0;
+        let startTime = 20;
+        let bonusTime = 11;
+        let maxScore = 0;
+
+        let getMaxScore = Number(localStorage.getItem('maxScore'));
+        if (getMaxScore) {
+            maxScore = getMaxScore;
+        }
+
+        let myInterval = null;
+        maxScoreSpan.innerHTML = maxScore;
+        shotBtn.classList.add('hide-btn');
+
+        // 開始遊戲
+        startBtn.addEventListener('click', function () {
+            this.classList.add('hide-btn');
+            shotBtn.classList.remove('hide-btn');
+
+            myInterval = setInterval(() => {
+                startTime--;
+                timeSpan.innerHTML = startTime;
+
+                if (startTime < 1) {
+                    clearInterval(myInterval);
+                }
+
+                if (startTime < bonusTime) {
+                    timeSpan.setAttribute('class', 'text-danger display-6');
+                }
+
+            }, 1000);
+        });
+
+        // 投籃
+        shotBtn.addEventListener('click', function () {
+            if (startTime < 1) {
+                return false;
+            }
+
+            if (startTime > bonusTime) {
+                score += 2;
+            } else {
+                score += 3;
+            }
+            scoreSpan.innerHTML = score;
+
+            if (score > maxScore) {
+                maxScore = score;
+                localStorage.setItem('maxScore', maxScore);
+                maxScoreSpan.innerHTML = maxScore;
+            }
+        });
+
+        // 停止
+        stopBtn.addEventListener('click', function () {
+            score = 0;
+            scoreSpan.innerHTML = '🏀🏀🏀';
+
+            clearInterval(myInterval);
+            startTime = 20;
+            timeSpan.innerHTML = startTime;
+            timeSpan.setAttribute('class', 'text-info display-6');
+
+            shotBtn.classList.add('hide-btn');
+            startBtn.classList.remove('hide-btn');
+        });
+    </script>
+</body>
+
+</html>
