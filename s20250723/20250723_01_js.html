@@ -60,7 +60,7 @@
                 01
             </div>
             <div class="col-4 text-center">
-                <span id="score">100</span>
+                <span id="score">0</span>
             </div>
             <div class="col-4 text-center">
                 03
@@ -119,12 +119,14 @@
             let bonusTime = 5;
             let maxScore = 0;
 
-            localStorage.setItem('maxScore', 123);
+            //最高分數重設
+            // localStorage.setItem('maxScore', 20);
             let getMaxScore = Number(localStorage.getItem('maxScore'));
             if (getMaxScore) {
                 maxScore = getMaxScore;
             }
-
+            console.log('maxScore', maxScore);
+            console.log('maxScore typeof', typeof (maxScore));
 
 
             let myInterval = null;
@@ -141,6 +143,7 @@
 
 
             // action
+            //開始遊戲
             startBtn.addEventListener('click', function () {
                 console.log('startBtn click ok');
                 this.setAttribute('class', 'btn btn-primary class-btn me-5 mb-5 hide-btn ');
@@ -161,6 +164,8 @@
                 }, 1000);
 
             });
+
+            //投籃
             shotBtn.addEventListener('click', function () {
                 console.log('shotBtn click ok');
                 //加分
@@ -174,6 +179,15 @@
                     score += 3;
                 }
                 scoreSpan.innerHTML = score;
+
+
+                //計算最高分數
+                //儲存最高分數
+                if(score > maxScore){
+                    maxScore = score;
+                    localStorage.setItem('maxScore',maxScore);
+                    maxScoreSpan.innerHTML = maxScore;
+                }
 
             });
 
