@@ -29,9 +29,21 @@
             display: inline;
         }
 
-        #pauseOverlay {
-            z-index: 10;
+        .border-inset {
+            border-style: inset;
+            border-width: 4px;
+            border-color: #ccc;
+            background-color: #0d241c;
         }
+
+        .border-dashed{
+            border-style: dashed;
+            border-width: 4px;
+            border-color: red;
+            background-color: #f1f0f0;
+            
+        }
+    </style>
     </style>
 
 </head>
@@ -39,14 +51,14 @@
 <body>
 
     <div class="container mt-3">
-        <div class="row text-white text-center" style="height: 50px;">
-            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-start-5">
+        <div class="row text-white text-center">
+            <div class="border-inset col-4 col-sm-4 d-flex align-items-center justify-content-center">
                 <span class="text-info display-6" id="time">20</span>
             </div>
-            <div class="col-4 col-sm-4 bg-primary d-flex align-items-center justify-content-center">
+            <div class="border-dashed col-3 col-sm-4 d-flex align-items-center justify-content-center">
                 <span class="fs-5" id="score">🏀🏀🏀</span>
             </div>
-            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-end-5">
+            <div class="border-inset col-4 col-sm-4 d-flex align-items-center justify-content-center">
                 最高分數：
                 <span id="maxScore"></span>
             </div>
