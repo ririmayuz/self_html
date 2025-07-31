@@ -17,6 +17,23 @@
 <body>
     <h1>Welcome to My Homepage</h1>
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="appendBtn">append</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="prependBtn">prepend</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="insertBeforeBtn">insertBefore</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="insertAfterBtn">insertAfter</button>
+            </div>
+        </div>
+    </div>
+
     <div id="myDiv">
         <p>
             1. Lorem ipsum dolor sit amet.
@@ -46,7 +63,15 @@
         $(document).ready(function () {
             // 1.bind
             const myDiv = $("#myDiv");
-            console.log('myDiv', myDiv);
+
+            // append prepend 往內增加
+            const appendBtn = $("#appendBtn");
+            const prependBtn = $("#prependBtn");
+
+            // insert siblings
+            const insertBeforeBtn = $("#insertBeforeBtn");
+            const insertAfterBtn = $("#insertAfterBtn");
+
 
             // 2.action
 
@@ -62,25 +87,81 @@
             prepend . Lorem ipsum dolor sit amet.
             </p>
             `;
+
+            let contentInsertBefore = `
+            <p>
+            Before . Lorem ipsum dolor sit amet.
+            </p>
+            `;
+
+            let conentInsertAfter = `
+            <p>
+            insertAfter . Lorem ipsum dolor sit amet.
+            </p>
+            `;
+
+
+
             // myDiv.append(content);
-            myDiv.prepend(contentPrepend);
-            myDiv.append(contentAppend);
-
+            // myDiv.prepend(contentPrepend);
+            // myDiv.append(contentAppend);
+            // myDiv.insertBefore(contentInsertBefore);
+            // myDiv.insertAfter(conentInsertAfter);
             // try 
-            // insert
-            // let pinsertAfter = `
-            // <p>
-            // insertAfter . Lorem ipsum dolor sit amet.
-            // </p>
-            // `;
+            // $(target).insertAfter(selector);
+            // $(target).insertBefore(selector);
 
-            // let pinsertBefore = `
-            // <p>
-            // insertBefore . Lorem ipsum dolor sit amet.
-            // </p>
-            // `;
-            // myDiv.insertAfter(pinsertAfter);
-            // myDiv.insertBefore(pinsertBefore);
+            appendBtn.click(function (e) {
+                e.preventDefault();
+                // myDiv.append(contentAppend);
+
+                $(contentAppend).appendTo(myDiv);
+
+            });
+
+            prependBtn.click(function (e) {
+                e.preventDefault();
+                myDiv.prepend(contentPrepend);
+
+            });
+
+            insertBeforeBtn.click(function (e) {
+                e.preventDefault();
+                // myDiv.insertBefore(contentInsertBefore);
+                // $(contentInsertBefore).insertBefore(myDiv);
+                $(myDiv).before(contentInsertBefore);
+
+            });
+
+            insertAfterBtn.click(function (e) {
+                e.preventDefault();
+                // myDiv.insertAfter(conentInsertAfter);
+                $(conentInsertAfter).insertAfter(myDiv)
+                // $(selector).after(content);
+
+            });
+
+
+            // 1.
+            // 往內
+            // append
+            // prepend
+            // 兄弟姊妹
+            // before
+            // after
+            myDiv.prepend(contentPrepend);
+            
+
+
+            // 2.
+            // 往內
+            // appendTo
+            // prependTo
+            // 兄弟姊妹
+            // before
+            // insertBefore
+            // insertAfter
+            $(contentPrepend).prependTo(myDiv)
 
 
 
