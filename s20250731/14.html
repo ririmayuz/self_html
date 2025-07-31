@@ -33,7 +33,6 @@
         .textdel {
             text-decoration: line-through;
         }
-
     </style>
 
 </head>
@@ -91,31 +90,36 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function () {
-            // 1.bind
-
+            // 1. bind
             const myText = $(".card-text");
 
-            // 2.action
+            // 2. action
             myText.click(function () {
-                const $this = $(this); // 被點到的卡片
+                const $this = $(this);
 
-                // 抓原價
+                const thisNext = $this.find('.newPrice');
+                if (thisNext.length > 0) {
+                    return false;
+                }
+
+                // 抓特價價格
+                const getPrice = $this.data('newprice');
+
+                // 加上刪除線（原價）
                 const $oldPrice = $this.find('.oldPrice');
-
-                // 加上刪除線
                 $oldPrice.addClass('text-decoration-line-through');
 
-                // 取得特價價格
-                const newPrice = $this.data('newprice');
+                // 特價
+                const content = `
+                <br>
+                <span class="newPrice text-danger">優惠價 $${getPrice}</span>
+                `;
 
                 // append
-                if ($this.find('.newPrice').length === 0) {
-                    $this.append(` <span class="newPrice text-danger ms-2">優惠價 $${newPrice}</span>`);
-                }
+                $this.append(content);
             });
-
-
         });
+
     </script>
 </body>
 
