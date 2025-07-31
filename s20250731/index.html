@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>優惠驚喜價</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .card {
+            width: 300px;
+        }
+
+        .card-img-top {
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 60vh;
+        }
+
+        .carousel-item img {
+            height: 50vh;
+            object-fit: cover;
+        }
+
+        .textdel {
+            text-decoration: line-through;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="box1" class="container">
+        <div class="row g-2 align-items-stretch">
+            <div class="col-12 col-sm-4 col-md-4">
+                <div class="card bg-light mx-auto h-100">
+                    <img class="card-img-top" src="./image/t1.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <!-- <h4 class="card-title">John Doe</h4> -->
+                        <p class="card-text text-center" data-newprice="9000">
+                            <span class="oldPrice">$10000</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4 col-md-4">
+                <div class="card bg-light mx-auto h-100">
+                    <img class="card-img-top" src="./image/t2.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <!-- <h4 class="card-title">John Doe</h4> -->
+                        <p class="card-text text-center" data-newprice="12000">
+                            <span class="oldPrice">$20000</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4 col-md-4">
+                <div class="card bg-light mx-auto h-100">
+                    <img class="card-img-top" src="./image/t3.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <!-- <h4 class="card-title">John Doe</h4> -->
+                        <p class="card-text text-center" data-newprice="22000">
+                            <span class="oldPrice">$30000</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+
+            const myText = $(".card-text");
+
+            // 2.action
+            myText.click(function () {
+                const $this = $(this); // 被點到的卡片
+
+                // 抓原價
+                const $oldPrice = $this.find('.oldPrice');
+
+                // 加上刪除線
+                $oldPrice.addClass('text-decoration-line-through');
+
+                // 取得特價價格
+                const newPrice = $this.data('newprice');
+
+                // append
+                if ($this.find('.newPrice').length === 0) {
+                    $this.append(` <span class="newPrice text-danger ms-2">優惠價 $${newPrice}</span>`);
+                }
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

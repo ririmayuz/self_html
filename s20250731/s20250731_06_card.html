@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .my-font {
+            font-size: x-large;
+            color: red;
+        }
+
+        .my-del {
+            text-decoration: line-through;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="https://picsum.photos/id/20/400/300" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <!-- <a href="#" class="btn btn-primary myA" data-price="9000">10000</a> -->
+                        <span class="myA" data-price="9000">原價 10000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="https://picsum.photos/id/21/400/300" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <!-- <a href="#" class="btn btn-primary myA" data-price="15000">20000</a> -->
+                        <span class="myA" data-price="15000">原價 20000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="https://picsum.photos/id/22/400/300" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <!-- <a href="#" class="btn btn-primary myA" data-price="22000">30000</a> -->
+                        <span class="myA" data-price="22000">原價 30000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+            let data = [
+                {
+                    id: 1,
+                    name: '20',
+                    origin_price: '10000',
+                    bonus_price: '9000'
+                },
+            ];
+            // btn btn-primary myA
+            // btn btn-primary myA my-del
+
+            // 1.bind
+            const myA = $(".myA");
+            console.log('myA', myA);
+
+            // 2.action
+            // 按下myA .....
+            myA.click(function (e) {
+
+                // 是否已有button
+                let thisNext = $(this).next();
+                console.log('thisNext', thisNext);
+                if (thisNext.length > 0) {
+                    return false;
+                }
+
+
+                console.log('this', this);
+                let getPrice = $(this).attr('data-price');
+                console.log('getPrice', getPrice);
+
+                $(this).attr('class', 'myA my-del')
+                // $(this).text(getPrice);
+
+                let content = `
+                <br><br>
+                <a href="#" class="btn btn-primary myA my-font">限時優惠 ${getPrice}</a>
+                `;
+
+                // parent
+                let thisParent = $(this).parent();
+                console.log('thisParent', thisParent);
+                thisParent.append(content);
+
+            });
+
+            // append
+
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

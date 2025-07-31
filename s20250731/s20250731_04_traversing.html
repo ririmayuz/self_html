@@ -20,9 +20,11 @@
     <div>
         <ul>
             <li>
+                aa
                 <p>My name is Donald</p>
             </li>
             <li>
+                bb
                 <p>
                     Lorem ipsum dolor sit amet.
                 </p>
@@ -58,12 +60,16 @@
             const myPFirstClosestUl = myPFirst.closest('ul');
             console.log('myPFirstClosestUl', myPFirstClosestUl);
 
-
+            const myLi = $("li");
+            console.log('myLi', myLi);
+            
+            const myLiFirst = myLi.first();
+            console.log('myLiFirst', myLiFirst);
 
 
 
             // 2.action
-            myPFirst.attr('class', 'text-primary');
+            myLiFirst.attr('class', 'text-primary');
             myPLast.attr('class', 'text-danger');
             // myPEq2.attr('class', 'text-success');
             greenP.attr('class', 'text-success');
