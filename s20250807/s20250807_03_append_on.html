@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <div class="row myRow1">
+            <div class="col-4 mt-5">
+                <span class="mySpan">
+                    Lorem ipsum dolor sit amet.
+                </span>
+            </div>
+        </div>
+
+        <br><br>
+        <hr>
+
+        <div class="row myRow2">
+            <div class="col-4 mt-5">
+                <span class="mySpan">
+                    Lorem ipsum dolor sit amet.
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            // 1.bind
+            let mySpan = $(".mySpan");
+            // const myRow = $(".myRow");
+
+            // 2.action
+            let appendCount = 0;
+            // https://www.w3schools.com/Jquery/event_on.asp
+            // https://chatgpt.com/share/68943839-ff38-800a-9404-184ea2448220
+            // https://chatgpt.com/share/68943da7-b264-800a-a8b0-82cdf88000bb
+            // jq click() 無法event copy
+            // jq on() 可以event copy
+            $('.container').on('click', '.mySpan', function (e) {
+                console.log('mySpan click ok');
+
+                appendCount++;
+
+                // 找到 .mySpan 的上上層 .row
+                let tmpRow = $(this).closest('.row');
+                console.log('tmpRow', tmpRow);
+
+                // 動態新增一個 col 內含新的 mySpan
+                let content = `
+                    <div class="col-4 mt-5">
+                        <span class="mySpan">
+                            Lorem${appendCount} ipsum dolor sit amet.
+                        </span>
+                    </div>
+                `;
+
+                tmpRow.append(content);
+                console.log('append ok');
+            });
+
+        });
+    </script>
+</body>
+
+</html>
