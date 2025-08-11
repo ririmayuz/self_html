@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>投籃大賽</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            touch-action: manipulation;
+            user-select: none;
+            /* 禁止選取 */
+        }
+
+        img {
+            width: 90%;
+            height: auto;
+        }
+
+        button {
+            /* width: 75px; */
+            width: auto;
+            height: 45px;
+        }
+
+        .hide-btn {
+            display: none;
+        }
+
+        .show-btn {
+            display: inline;
+        }
+
+        @keyframes shootBall {
+            0% {
+                bottom: 10px;
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                bottom: 220px;
+                transform: translateX(-50%) scale(1.1);
+            }
+
+            100% {
+                bottom: 100px;
+                transform: translateX(-50%) scale(0.9);
+            }
+        }
+
+        #ball.shooting {
+            display: block;
+            animation: shootBall 0.5s ease-out forwards;
+        }
+
+        #pauseOverlay {
+            z-index: 10;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <div class="row text-white text-center" style="height: 50px;">
+            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-start-5">
+                <span class="text-info display-6" id="time">20</span>
+            </div>
+            <div class="col-4 col-sm-4 bg-primary d-flex align-items-center justify-content-center">
+                <span id="score" class="fs-5">🏀🏀🏀</span>
+            </div>
+            <div class="col-4 col-sm-4 bg-black d-flex align-items-center justify-content-center rounded-end-5">
+                最高分數：
+                <span id="maxScore"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-2"></div>
+            <div class="col-12 col-sm-8 text-center position-relative">
+                <img src="./images/01.png" alt="">
+
+                <!-- 籃球動畫用 -->
+                <img src="./images/ball.png" id="ball" class="position-absolute"
+                    style="bottom: 10px; left: 50%; transform: translateX(-50%); width: 60px; display: none; z-index: 3;"
+                    alt="ball">
+
+                <div id="pauseOverlay" class="position-absolute top-50 start-50 translate-middle text-center"
+                    style="display: none;">
+                    <button id="continueBtn" class="btn btn-dark me-3">繼續</button>
+                    <button id="resetBtn" class="btn btn-dark">重新開始</button>
+                </div>
+
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                    <button id="startBtn" type="button" class="btn btn-primary class-btn">開始</button>
+                    <button id="shotBtn" type="button" class="btn btn-success class-btn hide-btn">投籃</button>
+                    <button id="stopBtn" type="button" class="btn btn-danger class-btn">暫停</button>
+                </div>
+
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // bind
+        // const startBtn = document.getElementById("startBtn");
+        // const shotBtn = document.getElementById("shotBtn");
+        // const stopBtn = document.getElementById("stopBtn");
+        // const scoreSpan = document.getElementById("score");
+        // const timeSpan = document.getElementById("time");
+        // const maxScoreSpan = document.getElementById("maxScore");
+        // const ball = document.getElementById("ball");
+
+        // const pauseOverlay = document.getElementById("pauseOverlay");
+        // const continueBtn = document.getElementById("continueBtn");
+        // const resetBtn = document.getElementById("resetBtn");
+
+
+        // 開始遊戲
+        startBtn.addEventListener('click', function () {
+
+        });
+
+        // 投籃
+        shotBtn.addEventListener('click', function () {
+
+        });
+
+        // 停止
+        stopBtn.addEventListener('click', function () {
+
+        });
+
+        continueBtn.addEventListener('click', function () {
+
+        });
+
+        resetBtn.addEventListener('click', function () {
+
+        });
+
+
+
+        $(document).ready(function () {
+            //jq start
+            //1. bind
+            const startBtn = $('#startBtn');
+            const shotBtn = $('#shotBtn');
+            const stopBtn = $('#stopBtn');
+            const scoreSpan = $('#score');
+            const timeSpan = $('#time');
+            const maxScoreSpan = $('#maxScore');
+            const ball = $('#ball');
+
+            const pauseOverlay = $('#pauseOverlay');
+            const continueBtn = $('#continueBtn');
+            const resetBtn = $('#resetBtn');
+
+
+            let score = 0;
+            let startTime = 20;
+            let bonusTime = 11;
+            let maxScore = 0;
+            let isGameStarted = false;
+
+            //2. action init
+            //最高分數重設
+            // localStorage.setItem('maxScore', 0);
+            let getMaxScore = localStorage.getItem('maxScore');
+            if (getMaxScore !== null) {
+                maxScore = Number(getMaxScore);
+            }
+            // let getMaxScore = Number(localStorage.getItem('maxScore'));
+            // if (getMaxScore) {
+            //     maxScore = getMaxScore;
+            // }
+
+            let myInterval = null;
+            maxScoreSpan.html(maxScore);
+            shotBtn.addClass('hide-btn');
+
+
+
+            //2. action
+            //startBtn click
+            startBtn.click(function (e) {
+                e.preventDefault();
+                isGameStarted = true;
+                clearInterval(myInterval);
+                $(this).addClass('hide-btn');
+                shotBtn.removeClass('hide-btn');
+
+                myInterval = setInterval(() => {
+                    startTime--;
+                    timeSpan.html(startTime);
+
+                    if (startTime < 1) {
+                        clearInterval(myInterval);
+                    }
+
+                    if (startTime < bonusTime) {
+                        timeSpan.attr('class', 'text-danger display-6');
+                    }
+
+                }, 1000);
+
+            });
+
+            //shotBtn click
+            shotBtn.click(function (e) {
+                e.preventDefault();
+                if (startTime < 1) {
+                    return false;
+                }
+
+                shootAnimation();
+                //加分
+                if (startTime > bonusTime) {
+                    score += 2;
+                } else {
+                    score += 3;
+                }
+                scoreSpan.html(score);
+                //計算最高分數
+                //儲存最高分數
+                if (score > maxScore) {
+                    maxScore = score;
+                    localStorage.setItem('maxScore', maxScore);
+                    maxScoreSpan.html(maxScore);
+                }
+
+            });
+
+            //stopBtn click
+            stopBtn.click(function (e) {
+                e.preventDefault();
+                if (!isGameStarted) {
+                    return; // 還沒開始就按暫停，直接忽略
+                }
+
+                clearInterval(myInterval);
+                shotBtn.addClass('hide-btn');
+                stopBtn.addClass('hide-btn');
+                pauseOverlay.show();
+                // startTime = 20;
+                // timeSpan.innerHTML = startTime;
+                // timeSpan.setAttribute('class', 'text-info display-6');
+
+                // shotBtn.classList.add('hide-btn');
+                // startBtn.classList.remove('hide-btn');
+
+            });
+
+            //continueBtn click
+            continueBtn.click(function (e) {
+                e.preventDefault();
+                console.log('continueBtn click');
+                clearInterval(myInterval); // <== 先清掉舊的
+                pauseOverlay.hide();
+                shotBtn.removeClass('hide-btn');
+                stopBtn.removeClass('hide-btn');
+
+                myInterval = setInterval(() => {
+                    startTime--;
+                    timeSpan.html(startTime);
+
+                    if (startTime < 1) {
+                        clearInterval(myInterval);
+                    }
+
+                    if (startTime < bonusTime) {
+                        timeSpan.attr('class', 'text-danger display-6');
+                    }
+
+                }, 1000);
+
+            });
+
+            //resetBtn click
+            resetBtn.click(function (e) {
+                e.preventDefault();
+                isGameStarted = false;
+                clearInterval(myInterval);
+                pauseOverlay.hide();
+
+                startTime = 20;
+                timeSpan.html(startTime);
+                timeSpan.addClass('text-info display-6');
+
+                score = 0;
+                // 分數歸零
+                scoreSpan.html('🏀🏀🏀');
+
+                shotBtn.addClass('hide-btn');
+                startBtn.removeClass('hide-btn');
+                stopBtn.removeClass('hide-btn');
+
+            });
+
+            //shootAnimation
+            function shootAnimation() {
+                // 顯示球（必要！否則動畫執行前看不到）
+                ball.show();
+
+                // 啟動動畫
+                ball.addClass('shooting');
+
+                // 清除動畫
+                setTimeout(() => {
+                    ball.removeClass('shooting');
+                    ball.hide();
+                }, 500);
+            }
+
+            //jq end
+        });
+    </script>
+</body>
+
+</html>
