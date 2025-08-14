@@ -9,48 +9,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- 載入 datatable css -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.css" />
     <style>
+        .img {
+            width: 20px;
+            height: 20px;
+        }
     </style>
 
 </head>
 
 <body>
 
-    <div class="container">
-        <table id="table_id" class="display">
+    <div class="container mt-3">
+        <h2>氣象預報 36 小時資料</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>locationName</th>
-                    <th>startTime</th>
-                    <th>endTime</th>
-                    <th>low</th>
-                    <th>close</th>
+                    <th>name</th>
+                    <th><span id="startTime12Span">0-12</span></th>
+                    <th><span id="startTime24Span">12-24</span></th>
+                    <th><span id="startTime36Span">24-36</span></th>
                 </tr>
             </thead>
             <tbody id="myTbody">
                 <!-- <tr>
                     <td>1</td>
-                    <td>amy</td>
-                    <td>0911-111-111</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>bob</td>
-                    <td>0922-222-222</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>cat</td>
-                    <td>0933-333-333</td>
+                    <td>新北市</td>
                 </tr> -->
             </tbody>
         </table>
     </div>
 
-    <!-- <img src="./data/response_1755138217095.json" alt=""> -->
 
     <!-- 載入bs5 js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -62,18 +53,33 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- 載入 datatable js 記得jquery要在上面 -->
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
-    <source src="./data/pw.js" type="">
+    <!-- 載入pwd -->
+    <!-- .gitignore -->
+    <!-- /pw -->
+    <!-- /pw/pw.js -->
+    <!-- let pw = 'your password' -->
+    <script src="./data/pw.js"></script>
     <script>
         $(document).ready(function () {
 
+            // 1.bind
             let pwd = pw;
             console.log('pwd', pwd);
-
-
-            let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
+            const myTbody = $('#myTbody');
             
+            // wx startTime
+            let startTime12 = data[0].weatherElement[0].time[0].startTime;
+            let startTime24 = data[0].weatherElement[0].time[1].startTime;
+            let startTime36 = data[0].weatherElement[0].time[2].startTime;
+
+
+            // change time word
+            let startTime12Span = $('#startTime12Span');
+            let startTime24Span = $('#startTime24Span');
+            let startTime36Span = $('#startTime36Span');
+
+            // 2.action init
+            let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
             $.ajax({
                 type: "get",
                 url: url,
@@ -83,11 +89,49 @@
                     console.log('response', response);
                     // let data = response.records.location[0].locationName;
                     let data = response.records.location;
+                    let tmpText = ``;
+
                     $.each(data, function (key, value) {
-                        console.log('key', key);
-                        console.log('value', value.locationName);
+
+                        //wx startTime
+                        let startTime12 = value.weatherElement[0].time[0].startTime
+                        let startTime24 = value.weatherElement[0].time[1].startTime;
+                        let startTime36 = value.weatherElement[0].time[2].startTime
+
+                        //wx
+                        let wx12 = value.weatherElement[0].time[0].parameter.parameterName;
+                        let wx24 = value.weatherElement[0].time[1].parameter.parameterName;
+                        let wx36 = value.weatherElement[0].time[2].parameter.parameterName;
+
+                        //wxValue
+                        let wxValue12 = value.weatherElement[0].time[0].parameter.parameterValue
+                        let wxValue24 = value.weatherElement[0].time[1].parameter.parameterValue;
+                        let wxValue36 = value.weatherElement[0].time[2].parameter.parameterValue
+
+                        // minT
+                        let minT12 = value.weatherElement[2].time[0].parameter.parameterName;
+                        let minT24 = value.weatherElement[2].time[1].parameter.parameterName;
+                        let minT36 = value.weatherElement[2].time[2].parameter.parameterName;
+
+                        // maxT
+                        let maxT12 = value.weatherElement[4].time[0].parameter.parameterName;
+                        let maxT24 = value.weatherElement[4].time[1].parameter.parameterName;
+                        let maxT36 = value.weatherElement[4].time[2].parameter.parameterName;
+                        tmpText += `
+                            <tr>
+                                <td>${key + 1}</td>
+                                <td>${value.locationName}</td>
+                                <td>${minT12}-${maxT12} &deg;C ${wx12} <img src="./day/${wxValue12}.svg" width="40"></td>
+                                <td>${minT24}-${maxT24} &deg;C ${wx24} <img src="./day/${wxValue24}.svg" width="40"></td>
+                                <td>${minT36}-${maxT36} &deg;C ${wx36} <img src="./day/${wxValue36}.svg" width="40"></td>
+                            </tr>
+                        `
+                        // console.log('key', key);
+                        // console.log('value', value.locationName);
                     });
 
+
+                    myTbody.append(tmpText);
                     console.log('data', data);
 
 
