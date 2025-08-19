@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中秋節月亮時間表</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- 自訂樣式 -->
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+      color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+      padding-bottom: 50px;
+    }
+
+    h2 {
+      font-weight: bold;
+      color: #fcd34d;
+    }
+
+    .table-box {
+      background-color: #ffffffcc;
+      border-radius: 10px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    table th,
+    table td {
+      vertical-align: top;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    table thead th {
+      background-color: #fcd34d;
+      color: #000;
+    }
+
+    .moon-card {
+      background-color: #f8f9fa;
+      border-radius: 6px;
+      padding: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 5px;
+      color: #212529;
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    .moon-rise {
+      color: #007bff;
+    }
+
+    .moon-transit {
+      color: #28a745;
+    }
+
+    .moon-set {
+      color: #dc3545;
+    }
+
+    .city-name {
+      font-weight: bold;
+      color: #1e3a8a;
+    }
+
+    .table td:first-child,
+    .table th:first-child {
+      background-color: #e2e8f0;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .table td:nth-child(2),
+    .table th:nth-child(2) {
+      background-color: #f8fafc;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-3">🌕 2025 中秋月亮時間表</h2>
+    <p class="text-center text-light mb-4">顯示 2025 年 10 月 6 日起一週的資訊：月出、月亮最高點、月沒</p>
+
+    <div class="table-box">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>縣市</th>
+            <th>10/06</th>
+            <th>10/07</th>
+            <th>10/08</th>
+            <th>10/09</th>
+            <th>10/10</th>
+            <th>10/11</th>
+            <th>10/12</th>
+          </tr>
+        </thead>
+        <tbody id="myTbody">
+          <!-- 動態填入 -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- JS & jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./data/october_moon_data_sorted.js"></script>
+  <script>
+    $(document).ready(function () {
+      const data = testData;
+      const targetDates = [
+        "2025-10-06", "2025-10-07", "2025-10-08",
+        "2025-10-09", "2025-10-10", "2025-10-11", "2025-10-12"
+      ];
+      const myTbody = $('#myTbody');
+
+      let content = '';
+      $.each(data, function (index, location) {
+        content += `<tr>
+                      <td>${index + 1}</td>
+                      <td class="city-name">${location.CountyName}</td>`;
+
+        $.each(targetDates, function (_, dateStr) {
+          const entry = location.time.find(t => t.Date === dateStr);
+          if (entry) {
+            const rise = entry.MoonRiseTime ?? 'N/A';
+            const transit = entry.MoonTransitTime ?? 'N/A';
+            const set = entry.MoonSetTime ?? 'N/A';
+            content += `
+              <td>
+                <div class="moon-card moon-rise">🌙 月出：${rise}</div>
+                <div class="moon-card moon-transit">🟢 最高點：${transit}</div>
+                <div class="moon-card moon-set">🔻 月沒：${set}</div>
+              </td>`;
+          } else {
+            content += `<td><div class="moon-card">N/A</div></td>`;
+          }
+        });
+
+        content += `</tr>`;
+      });
+
+      myTbody.html(content);
+    });
+  </script>
+</body>
+
+</html>
