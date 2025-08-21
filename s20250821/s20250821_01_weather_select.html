@@ -124,34 +124,10 @@
 
     <script>
         $(document).ready(function () {
-            // 1.bind
-            const data = testData;
-            const myTbody = $('#myTbody');
-            const myForm = $('#myForm');
-            const myBtn = $('#myBtn');
-            const btnClass = $('.btn-class');
-            const mySelect = $('#mySelect');
-            // console.log('data', data);
-
-
-            // 2.action
-
-            // myBtn click
-            btnClass.click(function (e) {
-                e.preventDefault();
-                // 當我按下btn , checkbox 取消選取
-                // $('input[type=checkbox]').prop("checked", false);
-                $('.my-checkbox').prop("checked", false);
-
-
-                console.log('myBtn ok');
-                let getLocation = $(this).attr('data-location');
-                console.log('getLocation', getLocation);
-
+            // function
+            function showLocationWeatherFun(getLocation) {
                 myTbody.html('');
                 content = ``;
-
-
                 // for
                 // php , js
                 // break 碰到後中斷
@@ -189,6 +165,35 @@
                 });
 
                 myTbody.append(content);
+            }
+
+
+
+            // 1.bind
+            const data = testData;
+            const myTbody = $('#myTbody');
+            const myForm = $('#myForm');
+            const myBtn = $('#myBtn');
+            const btnClass = $('.btn-class');
+            const mySelect = $('#mySelect');
+            // console.log('data', data);
+
+
+            // 2.action
+
+            // myBtn click
+            btnClass.click(function (e) {
+                e.preventDefault();
+                // 當我按下btn , checkbox 取消選取
+                // $('input[type=checkbox]').prop("checked", false);
+                $('.my-checkbox').prop("checked", false);
+
+
+                console.log('myBtn ok');
+                let getLocation = $(this).attr('data-location');
+                console.log('getLocation', getLocation);
+
+                showLocationWeatherFun(getLocation);
 
             });
 
@@ -217,7 +222,7 @@
 
             myTbody.append(content);
             mySelect.append(selectContent);
-            
+
 
             // form submit
             myForm.submit(function (e) {
@@ -271,6 +276,24 @@
 
             // form submit end
 
+
+            // select 
+            mySelect.change(function (e) {
+                let getLocation = $(this).val();
+                console.log('getLocation', getLocation);
+
+                // function
+                // 1.清空table
+                // 2.getLocation data
+                // 3.each data 看看有沒有符合 getLocation
+                // 4.append table
+                showLocationWeatherFun(getLocation);
+                // showLocationWeatherFun(myTbody, data, getLocation);
+
+            });
+
+
+            // select end
 
         });
     </script>

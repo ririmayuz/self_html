@@ -10,16 +10,18 @@
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        h2 {
+            color: #66a5df;
+            font-weight: bold;
+        }
         /* 表格本體（直接套在 .table） */
         .table {
-            border-radius: 10px;
+            border-radius: 12px;
             /* 圓角 */
             overflow: hidden;
             /* 避免子元素超出圓角 */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             /* 陰影 */
-            border: 2px solid #a5d8ff;
-            /* 粉藍色邊框 */
             border-collapse: separate;
             /* 讓圓角生效 */
             border-spacing: 0;
@@ -29,15 +31,15 @@
         /* 表格格線顏色 */
         .table td,
         .table th {
-            border: 1px solid #a5d8ff;
-            /* 粉藍色線條 */
+            border: 1px solid white;
+            /* 線條 */
             vertical-align: middle;
             text-align: center;
         }
 
         /* 表頭樣式 */
         .table thead th {
-            background-color: #74c0fc;
+            background-color: #82b1dd;
             /* 藍色背景 */
             color: white;
             /* 白字 */
@@ -45,28 +47,25 @@
             text-align: center;
         }
 
-        /* 偶數列淡藍色背景 */
-        .table tbody tr:nth-child(even) {
-            background-color: #f1f9ff;
-        }
-
-        /* 滑鼠移到整列 → 高亮淺藍色 */
-        .table tbody tr:hover {
-            background-color: #d0ebff;
-            transition: background-color 0.3s ease;
+        .table {
+            --bs-table-striped-bg: #f1f9ff;
+            --bs-table-striped-color: inherit;
+            --bs-table-hover-bg: #d0ebff;
+            --bs-table-hover-color: inherit;
         }
     </style>
 
 </head>
 
 <body>
-    <h2 class="text-center mb-3 pt-5">2025月亮時間表</h2>
+    <h2 class="text-center mb-3 pt-5">月初月沒時刻表</h2>
     <p class="text-center  mb-4">顯示 2025 年 10 月 6 日起一週的資訊：月出、月亮最高點、月沒</p>
 
     <div class="container">
         <div class="row">
             <div class="col">
-                <label for="sel1" class="form-label">Select list (select one):</label>
+                <label for="sel1" class="form-label">選擇縣市(單筆顯示)：
+                </label>
                 <select id="mySelect" class="form-select" name="sellist1">
                     <!-- <option>新北市</option> -->
                 </select>
@@ -77,7 +76,7 @@
     <div class="container mt-5">
         <!-- <div class="table-box"> -->
 
-        <table class="table table-bordered mt-5">
+        <table class="table table-bordered table-striped table-hover mt-5">
             <thead>
                 <tr>
                     <th>#</th>

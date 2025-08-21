@@ -21,16 +21,16 @@
         <p>To style a select menu in Bootstrap 5, add the .form-select class to the select element:</p>
 
         <label for="sel1" class="form-label">Select list (select one):</label>
-        <select class="form-select" id="sel1" name="sellist1">
-            <option>all</option>
+        <select id="mySelect" class="form-select" name="sellist1">
+            <!-- <option>all</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
-            <option>4</option>
+            <option>4</option> -->
         </select>
         <br>
         <label for="sel1" class="form-label">Select list (select one):</label>
-        <select class="form-select" id="sel1" name="sellist1">
+        <select id="mySelectDetail" class="form-select" name="sellist1">
             <option>11</option>
             <option>12</option>
             <option>13</option>
@@ -69,36 +69,36 @@
             // data
             let data = [
                 {
-                    id : 1,
-                    name:'北部地區',
-                    content : ['11','12','13','14']
+                    id: 1,
+                    name: '北部地區',
+                    content: ['11', '12', '13', '14']
                 },
                 {
-                    id : 2,
-                    name:'中部地區',
-                    content : ['21','22','23','24']
+                    id: 2,
+                    name: '中部地區',
+                    content: ['21', '22', '23', '24']
                 },
                 {
-                    id : 3,
-                    name:'南部地區',
-                    content : ['31','32','33','34']
+                    id: 3,
+                    name: '南部地區',
+                    content: ['31', '32', '33', '34']
                 },
                 {
-                    id : 4,
-                    name:'東部地區',
-                    content : ['41','42','43','44']
+                    id: 4,
+                    name: '東部地區',
+                    content: ['41', '42', '43', '44']
                 },
                 {
-                    id : 5,
-                    name:'外島地區',
-                    content : ['51','52','53','54']
+                    id: 5,
+                    name: '外島地區',
+                    content: ['51', '52', '53', '54']
                 },
                 {
-                    id : 6,
-                    name:'全部',
-                    content : []
+                    id: 6,
+                    name: '全部',
+                    content: []
                 }
-                
+
             ]
             // dataDetail 
             // let dataDetail = [
@@ -106,7 +106,37 @@
             //         'id' : 1,
             //         'name' : '11'
             //     }
+            
+            // 1. bind
+            const mySelect = $('#mySelect');
+            const mySelectDetail = $('#mySelectDetail');
+
+            // 2. action 主要邏輯區
+            
+            // 宣告一個空字串，準備累積 <option> 標籤
+            let content = ``;
+
+            // 使用 jQuery 的 $.each() 迴圈，逐一讀取 data 陣列/物件裡的元素
+            $.each(data, function (key, value) {
+                // key = 索引值（例如第幾筆資料）
+                // value = 該筆資料的物件（裡面包含 id、name 等欄位）
+                let tmpDetails = value.content;
+                
+                console.log('key', key);       // 除錯：顯示目前的索引
+                console.log('value', value);   // 除錯：顯示目前的資料內容
+
+                // 累加字串，組出 <option> 標籤
+                // value.id 與 value.name 來自每筆資料物件
+                content += `
+                <option>${value.id} - ${value.name}</option>
+                `;
+            });
+
+            // 把累積好的 <option> 一次性加進 select 元素（mySelect）
+            mySelect.append(content);
         });
+
+
     </script>
 </body>
 
