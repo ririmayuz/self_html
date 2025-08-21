@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月亮時間表</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 表格本體（直接套在 .table） */
+        .table {
+            border-radius: 10px;
+            /* 圓角 */
+            overflow: hidden;
+            /* 避免子元素超出圓角 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            /* 陰影 */
+            border: 2px solid #a5d8ff;
+            /* 粉藍色邊框 */
+            border-collapse: separate;
+            /* 讓圓角生效 */
+            border-spacing: 0;
+            /* 消除間隙 */
+        }
+
+        /* 表格格線顏色 */
+        .table td,
+        .table th {
+            border: 1px solid #a5d8ff;
+            /* 粉藍色線條 */
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        /* 表頭樣式 */
+        .table thead th {
+            background-color: #74c0fc;
+            /* 藍色背景 */
+            color: white;
+            /* 白字 */
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 偶數列淡藍色背景 */
+        .table tbody tr:nth-child(even) {
+            background-color: #f1f9ff;
+        }
+
+        /* 滑鼠移到整列 → 高亮淺藍色 */
+        .table tbody tr:hover {
+            background-color: #d0ebff;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 class="text-center mb-3 pt-5">2025月亮時間表</h2>
+    <p class="text-center  mb-4">顯示 2025 年 10 月 6 日起一週的資訊：月出、月亮最高點、月沒</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label for="sel1" class="form-label">Select list (select one):</label>
+                <select id="mySelect" class="form-select" name="sellist1">
+                    <!-- <option>新北市</option> -->
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <!-- <div class="table-box"> -->
+
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>縣市</th>
+                    <th>10/06</th>
+                    <th>10/07</th>
+                    <th>10/08</th>
+                    <th>10/09</th>
+                    <th>10/10</th>
+                    <th>10/11</th>
+                    <th>10/12</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+
+            </tbody>
+        </table>
+        <!-- </div> -->
+    </div>
+
+
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- get data -->
+
+    <!-- load js -->
+    <!--ajax json -->
+    <script src="./data/october_moon_data_sorted.js"></script>
+
+    <!-- <script>
+        $(document).ready(function () {
+            // 1.bind
+            const data = testData;
+            const myTbody = $('#myTbody');
+            const targetDates = [
+                "2025-10-06", "2025-10-07", "2025-10-08",
+                "2025-10-09", "2025-10-10", "2025-10-11", "2025-10-12"
+            ];
+            console.log('data', data);
+
+            // 2.action
+            let content = ``;
+            $.each(data, function (key, value) {
+                console.log('key', key);
+                console.log('value', value);
+
+                content += `
+                            <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.CountyName}</td>
+                         `;
+
+                $.each(targetDates, function (i, dateStr) {
+                    const match = value.time.find(t => t.Date === dateStr);
+                    if (match) {
+                        const rise = match.MoonRiseTime ?? "N/A";
+                        const transit = match.MoonTransitTime ?? "N/A";
+                        const set = match.MoonSetTime ?? "N/A";
+                        content += `
+                            <td>
+                            <div>🌙 月出：${rise}</div>
+                            <div>🟢 最高點：${transit}</div>
+                            <div>🔻 月沒：${set}</div>
+                            </td>
+                            `;
+                    } else {
+                        content += `<td>N/A</td>`;
+                    }
+                });
+
+                content += `</tr>`;
+            });
+
+            myTbody.append(content);
+        });
+    </script> -->
+    <script>
+        $(document).ready(function () {
+            // 1. bind
+            const data = testData; // 從 october_moon_data_sorted.js 來的資料
+            const myTbody = $('#myTbody');
+            const mySelect = $('#mySelect');
+
+            const targetDates = [
+                "2025-10-06", "2025-10-07", "2025-10-08",
+                "2025-10-09", "2025-10-10", "2025-10-11", "2025-10-12"
+            ];
+
+            // 2. 產生「縣市」選單（含「全部縣市」）
+            const counties = Array.from(new Set(data.map(d => d.CountyName))).sort((a, b) => a.localeCompare(b, 'zh-Hant'));
+            mySelect.append(`<option value="__ALL__">全部縣市</option>`);
+            counties.forEach(c => mySelect.append(`<option value="${c}">${c}</option>`));
+
+            // 3. 渲染表格的函式
+            function renderRows(rows) {
+                let content = ``;
+
+                rows.forEach((value, key) => {
+                    content += `
+          <tr>
+            <td>${key + 1}</td>
+            <td>${value.CountyName}</td>
+        `;
+
+                    targetDates.forEach(dateStr => {
+                        const match = value.time.find(t => t.Date === dateStr);
+                        if (match) {
+                            const rise = match.MoonRiseTime ?? "N/A";
+                            const transit = match.MoonTransitTime ?? "N/A";
+                            const set = match.MoonSetTime ?? "N/A";
+                            content += `
+              <td>
+                <div>🌙 月出：${rise}</div>
+                <div>🟢 最高點：${transit}</div>
+                <div>🔻 月沒：${set}</div>
+              </td>
+            `;
+                        } else {
+                            content += `<td>N/A</td>`;
+                        }
+                    });
+
+                    content += `</tr>`;
+                });
+
+                myTbody.empty().append(content);
+            }
+
+            // 4. 初始渲染：顯示全部
+            renderRows(data);
+
+            // 5. 下拉選單變更 → 篩選後重渲染
+            mySelect.on('change', function () {
+                const val = $(this).val();
+                const rows = (val === '__ALL__') ? data : data.filter(d => d.CountyName === val);
+                renderRows(rows);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

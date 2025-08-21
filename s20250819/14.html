@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中秋節月亮時間表~</title>
+    <title>月亮時間表</title>
     <!-- 載入bs5 css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
+    <!-- <style>
         body {
             background: linear-gradient(to bottom, #1e293b, #334155);
             font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
@@ -79,104 +79,103 @@
             background-color: #f8fafc;
             color: #000;
         }
-    </style>
+    </style> -->
 
 </head>
 
 <body>
-    <<h2 class="text-center mb-3">🌕 2025 中秋月亮時間表</h2>
-        <p class="text-center text-light mb-4">顯示 2025 年 10 月 6 日起一週的資訊：月出、月亮最高點、月沒</p>
+    <div class="container mt-5">
+        <div class="table-box">
+            <h2 class="text-center mb-3">2025月亮時間表</h2>
+            <p class="text-center  mb-4">顯示 2025 年 10 月 6 日起一週的資訊：月出、月亮最高點、月沒</p>
+            <table class="table table-bordered mt-5">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>縣市</th>
+                        <th>10/06</th>
+                        <th>10/07</th>
+                        <th>10/08</th>
+                        <th>10/09</th>
+                        <th>10/10</th>
+                        <th>10/11</th>
+                        <th>10/12</th>
+                    </tr>
+                </thead>
+                <tbody id="myTbody">
 
-        <div class="container mt-5">
-            <div class="table-box">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>縣市</th>
-                            <th>10/06</th>
-                            <th>10/07</th>
-                            <th>10/08</th>
-                            <th>10/09</th>
-                            <th>10/10</th>
-                            <th>10/11</th>
-                            <th>10/12</th>
-                        </tr>
-                    </thead>
-                    <tbody id="myTbody">
-            
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
+    </div>
 
 
 
 
 
-        <!-- 載入bs5 js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
-            integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <!-- 載入jquery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        
-        <!-- get data -->
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <!-- load js -->
-        <!--ajax json -->
-        <script src="./data/october_moon_data_sorted.js"></script>
+    <!-- get data -->
 
-        <script>
-            $(document).ready(function () {
-                // 1.bind
-                const data = testData;
-                const myTbody = $('#myTbody');
-                const targetDates = [
-                    "2025-10-06", "2025-10-07", "2025-10-08",
-                    "2025-10-09", "2025-10-10", "2025-10-11", "2025-10-12"
-                ];
-                console.log('data', data);
+    <!-- load js -->
+    <!--ajax json -->
+    <script src="./data/october_moon_data_sorted.js"></script>
 
-                // 2.action
-                let content = ``;
-                $.each(data, function (key, value) {
-                    console.log('key', key);
-                    console.log('value', value);
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const data = testData;
+            const myTbody = $('#myTbody');
+            const targetDates = [
+                "2025-10-06", "2025-10-07", "2025-10-08",
+                "2025-10-09", "2025-10-10", "2025-10-11", "2025-10-12"
+            ];
+            console.log('data', data);
 
-                    content += `
+            // 2.action
+            let content = ``;
+            $.each(data, function (key, value) {
+                console.log('key', key);
+                console.log('value', value);
+
+                content += `
                             <tr>
                             <td>${key + 1}</td>
                             <td>${value.CountyName}</td>
                          `;
 
-                    $.each(targetDates, function (i, dateStr) {
-                        const match = value.time.find(t => t.Date === dateStr);
-                        if (match) {
-                            const rise = match.MoonRiseTime ?? "N/A";
-                            const transit = match.MoonTransitTime ?? "N/A";
-                            const set = match.MoonSetTime ?? "N/A";
-                            content += `
+                $.each(targetDates, function (i, dateStr) {
+                    const match = value.time.find(t => t.Date === dateStr);
+                    if (match) {
+                        const rise = match.MoonRiseTime ?? "N/A";
+                        const transit = match.MoonTransitTime ?? "N/A";
+                        const set = match.MoonSetTime ?? "N/A";
+                        content += `
                             <td>
                             <div>🌙 月出：${rise}</div>
                             <div>🟢 最高點：${transit}</div>
                             <div>🔻 月沒：${set}</div>
                             </td>
                             `;
-                        } else {
-                            content += `<td>N/A</td>`;
-                        }
-                    });
-
-                    content += `</tr>`;
+                    } else {
+                        content += `<td>N/A</td>`;
+                    }
                 });
 
-                myTbody.append(content);
+                content += `</tr>`;
             });
-        </script>
+
+            myTbody.append(content);
+        });
+    </script>
 
 </body>
 
