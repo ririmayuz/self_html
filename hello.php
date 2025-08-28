@@ -30,7 +30,7 @@ function dd($data)
 $input = $_POST;
 
 $data = [
-    'id' => '14',
+    'id' => 14,
     'name' => '江雅茹',
     'msg'  => '您好 我吃一點'
 ];
