@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h2>11402 PHP 格言</h2>
+        <p>
+            架站 連線 ok
+        </p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th width="10%">id</th>
+                    <th width="10%">name</th>
+                    <th>msg</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- 載入bs5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+        integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            function getDataFun(tmpIP) {
+                let tmpUrl = `http://${tmpIP}/hello.php`;
+                // console.log('fun url =>', tmpUrl);
+
+                $.ajax({
+                    type: "post",
+                    url: tmpUrl,
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+                        // console.log('response', response);
+                        if (!response.length) {
+                            result.push(response);
+                        }
+                    }
+                });
+            }
+
+            // 1.bind
+            let result = [];
+            const myTbody = $('#myTbody')
+
+            // 2.action init
+            // getDataFun();
+
+            // for 52 73
+            // let tmpIP = `192.168.211.3`;
+            for (let index = 52; index <= 73; index++) {
+                // console.log('index', index);
+                let tmpIP = `192.168.211.${index}`;
+                // console.log('tmpIP', tmpIP);
+                getDataFun(tmpIP);
+            }
+
+
+            setTimeout(() => {
+                result.sort((a, b) => a.id - b.id);
+                console.log('result', result);
+
+
+                let content = ``;
+
+                $.each(result, function (key, value) {
+                    content += `
+                    <tr>
+                        <td>${value.id}</td>
+                        <td>${value.name}</td>
+                        <td>${value.msg}</td>
+                    </tr>
+                `;
+                });
+
+                myTbody.html(content);
+
+
+            }, 3000);
+
+
+
+
+            // ip 3,52 - 73
+
+        });
+    </script>
+</body>
+
+</html>
