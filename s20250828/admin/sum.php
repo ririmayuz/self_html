@@ -1,4 +1,10 @@
 <?php
+    // cors fix
+    // 允許跨網域存取 或特定網域存取(舉例live server)
+    header("Access-Control-Allow-Origin: *");
+    // header("Access-Control-Allow-Origin: https://http://127.0.0.1:5500");
+
+
 // 註解 寫在php內
 // 如果寫在html , ajax接收檔案 就不會json
 
