@@ -1,19 +1,9 @@
 <?php
-// cors fix
-// 允許跨網域存取 或特定網域存取(舉例live server)
+
 header("Access-Control-Allow-Origin: *");
 // header("Access-Control-Allow-Origin: https://http://127.0.0.1:5500");
 
 
-// 註解 寫在php內
-// 如果寫在html , ajax接收檔案 就不會json
-
-// 後台
-// 1.接收菜單
-// 2.菜單內容 麵線 甜不辣
-// 3.煮 麵線 甜不辣
-// 4.送餐 前面服務生 
-// 5.送 麵線 甜不辣
 
 function dd($data)
 {
@@ -38,14 +28,13 @@ function dd($data)
 // ];
 
 $input = $_POST;
-$sum = $input['num1'] + $input['num2'];
 
 $data = [
-    'num1' => $input['num1'],
-    'num2' => $input['num2'],
-    'sum'  => $sum
+    'id' => '14',
+    'name' => '江雅茹',
+    'msg'  => '您好 我吃一點'
 ];
 
 
-dd($data);
-echo json_encode($data);
+// dd($data);
+echo json_encode($data,JSON_UNESCAPED_UNICODE);

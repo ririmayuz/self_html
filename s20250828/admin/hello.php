@@ -38,14 +38,14 @@ function dd($data)
 // ];
 
 $input = $_POST;
-$sum = $input['num1'] + $input['num2'];
+// $sum = $input['num1'] + $input['num2'];
 
 $data = [
-    'num1' => $input['num1'],
-    'num2' => $input['num2'],
-    'sum'  => $sum
+    'id' => '14',
+    'name' => '14',
+    'msg'  => 'hi'
 ];
 
 
-dd($data);
+// dd($data);
 echo json_encode($data);
