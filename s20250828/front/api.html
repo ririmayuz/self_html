@@ -62,34 +62,34 @@
             myForm.submit(function (e) { 
                 e.preventDefault();
                 console.log('submit ok');
-                $.ajax({
-                    type: "get",
-                    url: url,
-                    // data: "data",
-                    dataType: "json",
-                    success: function (response) {
-                        console.log('response',response);
+                // $.ajax({
+                //     type: "get",
+                //     url: url,
+                //     // data: "data",
+                //     dataType: "json",
+                //     success: function (response) {
+                //         console.log('response',response);
                         
-                    }
-                });
+                //     }
+                // });
                 
             });
 
-            //🔻除錯用
-            // $.ajax({
-            //     type: "get",
-            //     url: url,
-            //     // data: "data",
-            //     dataType: "json",
-            //     success: function (response) {
-            //         console.log('response', response);
+            // 🔻除錯用
+            $.ajax({
+                type: "get",
+                url: url,
+                // data: "data",
+                dataType: "json",
+                success: function (response) {
+                    console.log('response', response);
 
-            //     },
-            //     error: function (error) {
-            //         console.log('error', error);
-            //     }
-            // });
-            jqa
+                },
+                error: function (error) {
+                    console.log('error', error);
+                }
+            });
+           
         });
     </script>
 </body>

@@ -1,8 +1,8 @@
 <?php
-    // cors fix
-    // 允許跨網域存取 或特定網域存取(舉例live server)
-    header("Access-Control-Allow-Origin: *");
-    // header("Access-Control-Allow-Origin: https://http://127.0.0.1:5500");
+// cors fix
+// 允許跨網域存取 或特定網域存取(舉例live server)
+header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Origin: https://http://127.0.0.1:5500");
 
 
 // 註解 寫在php內
@@ -22,19 +22,26 @@ function dd($data)
     echo "</pre>";
 }
 
-$data = [
-    [
-        'id' => 1,
-        'name' => 'amy'
-    ],
-    [
-        'id' => 2,
-        'name' => 'bob'
-    ],
-    [
-        'id' => 3,
-        'name' => 'cat'
-    ]
+// $data = [
+//     [
+//         'id' => 1,
+//         'name' => 'amy'
+//     ],
+//     [
+//         'id' => 2,
+//         'name' => 'bob'
+//     ],
+//     [
+//         'id' => 3,
+//         'name' => 'cat'
+//     ]
+// ];
+
+
+$data =  [
+    'num1' => 100,
+    'num2' => 50,
+    'sum'  => 150
 ];
 
 echo json_encode($data);
