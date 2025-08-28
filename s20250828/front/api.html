@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <h2>數字加總計算機</h2>
+        <form action="http://localhost/s20250828/admin/sum.php">
+            <div class="mb-3 mt-3" id="myForm">
+                <label for="num1">num1:</label>
+                <input type="num1" class="form-control" id="num1" placeholder="Enter num1" name="num1">
+            </div>
+            <div class="mb-3">
+                <label for="num2">num2:</label>
+                <input type="num2" class="form-control" id="num2" placeholder="Enter num2" name="num2">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 前台
+            // 1.點菜 / num1 num2
+            // 2.麵線 甜不辣 form
+            // 3.服務生 上菜 ajax
+
+            // 前台
+            // 1.點菜
+            // 2.麵線 甜不辣
+            // 3.服務生 上菜
+
+            //1.bind 
+            const myForm = $("#myForm");
+            //2.action
+            let url="http://localhost/s20250828/admin/sum.php";
+
+            myForm.submit(function (e) { 
+                e.preventDefault();
+                console.log('submit ok');
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('response',response);
+                        
+                    }
+                });
+                
+            });
+
+            //🔻除錯用
+            // $.ajax({
+            //     type: "get",
+            //     url: url,
+            //     // data: "data",
+            //     dataType: "json",
+            //     success: function (response) {
+            //         console.log('response', response);
+
+            //     },
+            //     error: function (error) {
+            //         console.log('error', error);
+            //     }
+            // });
+        });
+    </script>
+</body>
+
+</html>
